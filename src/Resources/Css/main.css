@@ -1,5 +1,7 @@
 .main {
-  height: 100%;
+  -webkit-box-flex: 0.8;
+      -ms-flex: 0.8;
+          flex: 0.8;
   background-color: lightgreen;
 }
 /*# sourceMappingURL=main.css.map */

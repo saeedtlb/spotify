@@ -1,6 +1,6 @@
 footer {
-    max-height: 160px;
-    height: 140px;
+    grid-column: 1/4;
+    grid-row: 2;
     width: 100%;
     position: fixed;
     bottom: 0;

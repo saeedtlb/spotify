@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Route } from 'react-router-dom';
-
 import { useStateValue } from './components/DataLayer';
 
 import Login from './components/Login';

@@ -1,5 +1,5 @@
 .left_bar {
-  height: 100%;
+  max-width: 340px;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0.88%, #010b1e), color-stop(99.9%, #020b1c));
   background: linear-gradient(360deg, #010b1e 0.88%, #020b1c 99.9%);
   mix-blend-mode: normal;

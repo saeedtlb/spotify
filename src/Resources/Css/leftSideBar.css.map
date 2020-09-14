@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,qDAAqD;EACjE,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,eAAe;CACnC",
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,qDAAqD;EACjE,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,eAAe;CACnC",
     "sources": [
         "../Sass/leftSideBar.scss"
     ],

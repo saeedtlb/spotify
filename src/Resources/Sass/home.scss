@@ -1,6 +1,10 @@
 .home {
+    display: grid;
+    grid-template-columns: 20% 1fr 10%;
+    grid-template-rows: 1fr 10%;
+    height: 100vh;
     section {
-        display: flex;
-        height: 100%;
+        grid-column: 1/4;
+        grid-row: 1/2;
     }
 }

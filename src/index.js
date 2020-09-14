@@ -4,16 +4,11 @@ import ReactDOM from 'react-dom';
 import './Resources/Css/index.css';
 
 import { DataLayerProvider } from './components/DataLayer';
-import { BrowserRouter, Switch } from 'react-router-dom';
 import Routes from './Routes';
 
 ReactDOM.render(
     <DataLayerProvider>
-        <BrowserRouter>
-            <Switch>
-                <Routes />
-            </Switch>
-        </BrowserRouter>
+        <Routes />
     </DataLayerProvider>,
     document.getElementById('root')
 );
