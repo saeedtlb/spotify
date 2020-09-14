@@ -1,0 +1,12 @@
+footer {
+    max-height: 160px;
+    height: 140px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+    background: linear-gradient(360deg, #020814 1.05%, #030d20 99.15%);
+    mix-blend-mode: normal;
+    opacity: 0.98;
+    backdrop-filter: blur(135.679px);
+}

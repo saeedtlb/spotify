@@ -9,7 +9,8 @@ const SCOPES = [
     'user-read-currently-playing',
     'user-read-recently-played',
     'playlist-read-private',
+    'user-modify-playback-state',
 ];
 
-export const accessUrl = `${BASE_URI}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token
-    &scope=${SCOPES.join(' ')}`;
+export const accessUrl = `${BASE_URI}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}
+&scope=${SCOPES.join('%20')}&response_type=token&show_dialog=true`;

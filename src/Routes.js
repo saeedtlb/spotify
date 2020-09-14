@@ -2,16 +2,15 @@ import React from 'react';
 
 import { Route } from 'react-router-dom';
 
-import Auth from './HOC/Auth';
+import { useStateValue } from './components/DataLayer';
 
 import Login from './components/Login';
+import Home from './components/home/Home';
 
 const Routes = () => {
-    return (
-        <>
-            <Route path='/' exact component={Auth(Login)} />
-        </>
-    );
+    const [{ token }] = useStateValue();
+    console.log(token);
+    return <>{token ? <Home /> : <Login />}</>;
 };
 
 export default Routes;
