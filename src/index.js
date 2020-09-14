@@ -1,5 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { DataLayerProvider } from './components/DataLayer';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import Routes from './Routes';
+
+ReactDOM.render(
+    <DataLayerProvider>
+        <BrowserRouter>
+            <Switch>
+                <Routes />
+            </Switch>
+        </BrowserRouter>
+    </DataLayerProvider>,
+    document.getElementById('root')
+);

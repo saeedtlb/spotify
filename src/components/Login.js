@@ -1,11 +1,11 @@
 import React from 'react';
 
-function App() {
+function Login() {
     return (
-        <div className='App'>
+        <div className='login'>
             <h1>hello spotify</h1>
         </div>
     );
 }
 
-export default App;
+export default Login;
