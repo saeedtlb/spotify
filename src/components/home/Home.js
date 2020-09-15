@@ -3,7 +3,7 @@ import React from 'react';
 import '../../Resources/Css/home.css';
 
 import LeftSideBar from './sidebar/LeftSideBar';
-import Player from './Player';
+import Player from './volume/Player';
 import Main from './Main';
 
 const Home = () => {
