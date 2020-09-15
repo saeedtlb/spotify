@@ -1,7 +1,45 @@
 .left_bar {
-    max-width: 340px;
+    grid-column: 1/2;
+    grid-row: 1;
     background: linear-gradient(360deg, #010b1e 0.88%, #020b1c 99.9%);
     mix-blend-mode: normal;
     opacity: 0.91;
     backdrop-filter: blur(30.1256px);
+    padding: 10px 50px;
+
+    .logo {
+        margin-bottom: 30px;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    .navigation {
+        height: 100%;
+        color: #fff;
+
+        .original {
+            .side_option {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-top: 10px;
+                cursor: pointer;
+                transition: color 0.2s ease-in;
+
+                &:hover {
+                    color: #46db70;
+                }
+
+                span {
+                    margin-left: 10px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
 }

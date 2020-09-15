@@ -1,4 +1,5 @@
 .main {
-    flex: 0.8;
+    grid-column: 2/4;
+    grid-row: 1;
     background-color: lightgreen;
 }

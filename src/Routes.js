@@ -7,7 +7,6 @@ import Home from './components/home/Home';
 
 const Routes = () => {
     const [{ token }] = useStateValue();
-    console.log(token);
     return <>{token ? <Home /> : <Login />}</>;
 };
 

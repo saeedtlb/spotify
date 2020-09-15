@@ -7,13 +7,4 @@
       grid-template-rows: 1fr 10%;
   height: 100vh;
 }
-
-.home section {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-}
 /*# sourceMappingURL=home.css.map */

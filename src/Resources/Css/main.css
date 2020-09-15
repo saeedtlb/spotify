@@ -1,7 +1,9 @@
 .main {
-  -webkit-box-flex: 0.8;
-      -ms-flex: 0.8;
-          flex: 0.8;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 1;
+  grid-row: 1;
   background-color: lightgreen;
 }
 /*# sourceMappingURL=main.css.map */

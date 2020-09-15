@@ -9,10 +9,8 @@ import Main from './Main';
 const Home = () => {
     return (
         <div className='home'>
-            <section>
-                <LeftSideBar />
-                <Main />
-            </section>
+            <LeftSideBar />
+            <Main />
             <Player />
         </div>
     );
