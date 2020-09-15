@@ -1,6 +1,6 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
-import { SET_USER } from './types';
+import { SET_USER, TOGGLE_PLAY } from './types';
 
 const spotify = new SpotifyWebApi();
 
@@ -28,6 +28,14 @@ export const getToken = async token => {
             };
         });
 
+        const { item } = await spotify.getMyCurrentPlayingTrack();
+        data['latest_song'] = {
+            id: item.id,
+            name: item.name,
+            artists: item.artists,
+            cover: item.album.images,
+        };
+
         return {
             type: SET_USER,
             payload: data,
@@ -36,3 +44,8 @@ export const getToken = async token => {
         console.log(error);
     }
 };
+
+export const toggle_play_status = status => ({
+    type: TOGGLE_PLAY,
+    playing: status,
+});

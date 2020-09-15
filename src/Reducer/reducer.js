@@ -1,4 +1,4 @@
-import { SET_USER, SET_TOKEN } from '../Actions/types';
+import { SET_USER, SET_TOKEN, TOGGLE_PLAY } from '../Actions/types';
 
 export const initialState = {
     display_name: null,
@@ -8,28 +8,30 @@ export const initialState = {
     image: null,
     user: null,
     playing: false,
-    playlists: [
-        { name: 'pop goes classic' },
-        { name: 'metalica' },
-        { name: 'coldplay' },
-        { name: 'AC/DC' },
-        { name: 'A Star is Born' },
-        { name: 'Essential classic' },
-        { name: 'shajarian' },
-        { name: 'Iran' },
-        { name: 'weekly' },
-        { name: 'Jazz' },
-        { name: 'persian' },
-        { name: 'Essential classic' },
-        { name: 'shajarian' },
-        { name: 'Iran' },
-        { name: 'weekly' },
-        { name: 'Jazz' },
-        { name: 'persian' },
-    ],
-    // token: null,
-    token:
-        'BQDr6IIJj6p2iVBjEe0ILc_4qV3MeLBPpgnrcLo1xP0-jUu6Ng…Ig56kci9e-9mddkmeyXZNg5q2MrsYNwxJxLmPZbpVRmuHOj9E',
+    latest_song: {},
+    playlists: [],
+    // playlists: [
+    //     { name: 'pop goes classic' },
+    //     { name: 'metalica' },
+    //     { name: 'coldplay' },
+    //     { name: 'AC/DC' },
+    //     { name: 'A Star is Born' },
+    //     { name: 'Essential classic' },
+    //     { name: 'shajarian' },
+    //     { name: 'Iran' },
+    //     { name: 'weekly' },
+    //     { name: 'Jazz' },
+    //     { name: 'persian' },
+    //     { name: 'Essential classic' },
+    //     { name: 'shajarian' },
+    //     { name: 'Iran' },
+    //     { name: 'weekly' },
+    //     { name: 'Jazz' },
+    //     { name: 'persian' },
+    // ],
+    token: null,
+    // token:
+    //     'BQDr6IIJj6p2iVBjEe0ILc_4qV3MeLBPpgnrcLo1xP0-jUu6Ng…Ig56kci9e-9mddkmeyXZNg5q2MrsYNwxJxLmPZbpVRmuHOj9E',
 };
 
 export const reducer = (state = initialState, action) => {
@@ -42,6 +44,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.payload,
+            };
+        case TOGGLE_PLAY:
+            return {
+                ...state,
+                playing: action.playing,
             };
         default:
             return state;

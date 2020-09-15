@@ -4,6 +4,7 @@ import '../../../Resources/Css/player.css';
 
 import CustomSlider from './Volume';
 import Controls from './Controls';
+import SongIngo from './SongIngo';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -24,7 +25,7 @@ const Player = () => {
                 style={{ height: '100%', padding: 15 }}
             >
                 <Grid item md={2}>
-                    song
+                    <SongIngo />
                 </Grid>
 
                 <Grid item md={7}>
