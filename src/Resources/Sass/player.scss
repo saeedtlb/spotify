@@ -8,4 +8,29 @@ footer {
     opacity: 0.98;
     backdrop-filter: blur(135.679px);
     color: #b3b3b3;
+
+    .song {
+        .control {
+            margin: auto;
+            max-width: 280px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            svg {
+                opacity: 0.8;
+                cursor: pointer;
+                transition: all 200ms ease-out;
+
+                &:hover {
+                    opacity: 1;
+                    transform: scale(1.1);
+                }
+            }
+
+            .play_pause {
+                font-size: 42px;
+            }
+        }
+    }
 }

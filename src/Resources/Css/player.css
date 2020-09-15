@@ -13,4 +13,35 @@ footer {
           backdrop-filter: blur(135.679px);
   color: #b3b3b3;
 }
+
+footer .song .control {
+  margin: auto;
+  max-width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .song .control svg {
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+
+footer .song .control svg:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+footer .song .control .play_pause {
+  font-size: 42px;
+}
 /*# sourceMappingURL=player.css.map */

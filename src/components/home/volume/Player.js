@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import '../../../Resources/Css/player.css';
 
 import CustomSlider from './Volume';
+import Controls from './Controls';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -22,12 +23,12 @@ const Player = () => {
                 justify='space-around'
                 style={{ height: '100%', padding: 15 }}
             >
-                <Grid item md={3}>
+                <Grid item md={2}>
                     song
                 </Grid>
 
                 <Grid item md={7}>
-                    play
+                    <Controls />
                 </Grid>
 
                 <Grid item md={2}>
