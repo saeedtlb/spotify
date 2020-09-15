@@ -28,7 +28,7 @@
   color: #fff;
 }
 
-.left_bar .navigation .original .side_option {
+.left_bar .navigation .side_option {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,13 +44,38 @@
   transition: color 0.2s ease-in;
 }
 
-.left_bar .navigation .original .side_option:hover {
+.left_bar .navigation .side_option:hover {
   color: #46db70;
 }
 
-.left_bar .navigation .original .side_option span {
-  margin-left: 10px;
+.left_bar .navigation .side_option span,
+.left_bar .navigation .side_option p {
   font-weight: bold;
+  text-transform: capitalize;
+}
+
+.left_bar .navigation .library {
+  margin-top: 20px;
+}
+
+.left_bar .navigation .library .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #3b4c64;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.left_bar .navigation .library .title h3 {
   text-transform: uppercase;
+  font-weight: 400;
 }
 /*# sourceMappingURL=leftSideBar.css.map */

@@ -1,12 +1,14 @@
 import React from 'react';
 
-import SettingsInputAntennaSharpIcon from '@material-ui/icons/SettingsInputAntennaSharp';
-
-const SidebarElement = ({ Icon = null, txt }) => {
+const SidebarElement = ({ Icon = null, txt, style }) => {
     return (
         <div className='side_option'>
             {Icon ? <Icon /> : null}
-            <span>{txt}</span>
+            {Icon ? (
+                <span style={style}>{txt}</span>
+            ) : (
+                <p style={style}>{txt}</p>
+            )}
         </div>
     );
 };

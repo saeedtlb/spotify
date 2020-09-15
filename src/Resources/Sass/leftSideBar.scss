@@ -21,23 +21,39 @@
         height: 100%;
         color: #fff;
 
-        .original {
-            .side_option {
+        .side_option {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: color 0.2s ease-in;
+
+            &:hover {
+                color: #46db70;
+            }
+
+            span,
+            p {
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+        }
+
+        .library {
+            margin-top: 20px;
+            .title {
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
-                justify-content: flex-start;
-                margin-top: 10px;
+                color: #3b4c64;
+                border-bottom: 1px solid rgba(#fff, 0.5);
+                margin-bottom: 5px;
                 cursor: pointer;
-                transition: color 0.2s ease-in;
 
-                &:hover {
-                    color: #46db70;
-                }
-
-                span {
-                    margin-left: 10px;
-                    font-weight: bold;
+                h3 {
                     text-transform: uppercase;
+                    font-weight: 400;
                 }
             }
         }

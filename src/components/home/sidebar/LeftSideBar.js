@@ -1,8 +1,9 @@
 import React from 'react';
 
-import '../../Resources/Css/leftSideBar.css';
+import '../../../Resources/Css/leftSideBar.css';
 
-import SidebarElement from '../utils/SidebarElement';
+import SidebarElement from '../../utils/SidebarElement';
+import Library from './Library';
 
 import HomeIcon from '@material-ui/icons/Home';
 import ComputerIcon from '@material-ui/icons/Computer';
@@ -18,7 +19,12 @@ const LeftSideBar = () => {
 
     const renderMainItems = () =>
         original.map(item => (
-            <SidebarElement txt={item.txt} Icon={item.icon} key={item.txt} />
+            <SidebarElement
+                txt={item.txt}
+                Icon={item.icon}
+                style={{ textTransform: 'uppercase', marginLeft: '10px' }}
+                key={item.txt}
+            />
         ));
 
     return (
@@ -28,7 +34,7 @@ const LeftSideBar = () => {
             </div>
             <div className='navigation'>
                 <div className='original'>{renderMainItems()}</div>
-                <div className='library'></div>
+                <Library />
             </div>
         </div>
     );
