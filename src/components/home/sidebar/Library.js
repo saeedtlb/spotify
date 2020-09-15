@@ -1,27 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-import SidebarElement from '../../utils/SidebarElement';
+import Options from '../../utils/Options';
 
 const Library = () => {
-    const [show, setShow] = useState(true);
-
-    return (
-        <div className='library'>
-            <div className='title' onClick={() => setShow(prev => !prev)}>
-                <h3>your library</h3>
-                {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </div>
-            <Collapse in={show} timeout='auto' unmountOnExit>
-                <SidebarElement txt='recently played' />
-                <SidebarElement txt='podcasts' />
-                <SidebarElement txt='local files' />
-            </Collapse>
-        </div>
-    );
+    const element_txt = ['recently played', 'podcasts', 'local files'];
+    return <Options title='your library' options={element_txt} />;
 };
 
 export default Library;

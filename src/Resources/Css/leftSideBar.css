@@ -11,6 +11,13 @@
   -webkit-backdrop-filter: blur(30.1256px);
           backdrop-filter: blur(30.1256px);
   padding: 10px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .left_bar .logo {
@@ -24,7 +31,6 @@
 }
 
 .left_bar .navigation {
-  height: 100%;
   color: #fff;
 }
 
@@ -54,11 +60,11 @@
   text-transform: capitalize;
 }
 
-.left_bar .navigation .library {
+.left_bar .navigation .option {
   margin-top: 20px;
 }
 
-.left_bar .navigation .library .title {
+.left_bar .navigation .option .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,8 +80,13 @@
   cursor: pointer;
 }
 
-.left_bar .navigation .library .title h3 {
+.left_bar .navigation .option .title h3 {
   text-transform: uppercase;
   font-weight: 400;
+}
+
+.left_bar .navigation .option:last-child .scroll {
+  height: 300px !important;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=leftSideBar.css.map */

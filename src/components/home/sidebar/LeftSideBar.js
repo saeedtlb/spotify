@@ -4,6 +4,7 @@ import '../../../Resources/Css/leftSideBar.css';
 
 import SidebarElement from '../../utils/SidebarElement';
 import Library from './Library';
+import PlayList from './PlayList';
 
 import HomeIcon from '@material-ui/icons/Home';
 import ComputerIcon from '@material-ui/icons/Computer';
@@ -35,6 +36,7 @@ const LeftSideBar = () => {
             <div className='navigation'>
                 <div className='original'>{renderMainItems()}</div>
                 <Library />
+                <PlayList />
             </div>
         </div>
     );
