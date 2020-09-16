@@ -4,9 +4,9 @@ import '../../Resources/Css/home.css';
 
 import LeftSideBar from './sidebar/LeftSideBar';
 import Player from './footer/Player';
-import Main from './Main';
+import Main from './main/Main';
 
-const Home = () => {
+const Body = () => {
     return (
         <div className='home'>
             <LeftSideBar />
@@ -16,4 +16,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Body;
