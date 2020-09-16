@@ -14,7 +14,7 @@ footer {
   color: #b3b3b3;
 }
 
-footer .song .control {
+footer .control {
   margin: auto;
   max-width: 280px;
   display: -webkit-box;
@@ -28,20 +28,59 @@ footer .song .control {
           align-items: center;
 }
 
-footer .song .control svg {
+footer .control svg {
   opacity: 0.8;
   cursor: pointer;
   -webkit-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
 }
 
-footer .song .control svg:hover {
+footer .control svg:hover {
   opacity: 1;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-footer .song .control .play_pause {
+footer .control .play_pause {
   font-size: 42px;
+}
+
+footer .song {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+footer .song .cover {
+  width: 64px;
+  height: 64px;
+}
+
+footer .song .cover object[type='image/png'],
+footer .song .cover img {
+  display: inline-block;
+  width: auto;
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+footer .song .info {
+  margin-left: 12px;
+  position: relative;
+}
+
+footer .song .info .texts {
+  height: 100%;
+  width: 160px;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
+}
+
+footer .song .info .texts span {
+  display: inline-block;
+  margin-bottom: 8px;
 }
 /*# sourceMappingURL=player.css.map */

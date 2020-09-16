@@ -33,4 +33,39 @@ footer {
         }
     }
     // }
+
+    .song {
+        display: flex;
+        overflow: hidden;
+
+        .cover {
+            width: 64px;
+            height: 64px;
+
+            object[type='image/png'],
+            img {
+                display: inline-block;
+                width: auto;
+                max-height: 100%;
+                object-fit: cover;
+            }
+        }
+        .info {
+            margin-left: 12px;
+            position: relative;
+
+            .texts {
+                height: 100%;
+                width: 160px;
+                text-transform: capitalize;
+                position: absolute;
+                bottom: 0;
+
+                span {
+                    display: inline-block;
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
 }

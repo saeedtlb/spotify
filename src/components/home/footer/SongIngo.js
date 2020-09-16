@@ -4,30 +4,41 @@ import { useStateValue } from '../../DataLayer';
 
 const SongIngo = () => {
     const [{ latest_song }] = useStateValue();
-    console.log(888, latest_song);
+    console.log(7777, latest_song);
 
     const render_Artists = () => {
-        let artists = '';
-        latest_song.artists.forEach(artist => (artists += artist + ', '));
-        // latest_song.artists?.forEach(artist => (artists += artist.name + ', '));
-        return artists.trim().slice(0, -1);
+        return latest_song.artists
+            ? latest_song.artists.map(artist => artist.name).join(', ')
+            : '';
     };
 
     return (
         <div className='song'>
             <div className='cover'>
-                <object data='/Images/spotify.jpg' type='image/jpg'>
+                {latest_song.cover ? (
                     <img
-                        src={latest_song?.cover[2].url}
-                        width={latest_song?.cover[2].width}
-                        height={latest_song?.cover[2].height}
+                        src={latest_song.cover[2].url}
+                        width={latest_song.cover[2].width}
+                        height={latest_song.cover[2].height}
                         alt='song cover'
                     />
-                </object>
+                ) : (
+                    <img
+                        src='/Images/no_image.png'
+                        width='64px'
+                        height='64px'
+                        alt='song cover'
+                    />
+                )}
             </div>
             <div className='info'>
-                <p>{latest_song.name}</p>
-                <p>{render_Artists()}</p>
+                <div className='texts'>
+                    <p>
+                        <span>{latest_song.name}</span>
+                        <br />
+                        {render_Artists()}
+                    </p>
+                </div>
             </div>
         </div>
     );
