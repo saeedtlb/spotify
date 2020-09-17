@@ -11,7 +11,7 @@ export const initialState = {
     latest_song: {},
     featured: [],
     playlists: [],
-    // token: null,
+    token: null,
     // latest_song: {
     //     artists: [{ name: 'the beatels' }, { name: 'paul mcCaurteny' }],
     //     name: 'yseterday',
@@ -33,8 +33,8 @@ export const initialState = {
     //     { name: 'AC/DC' },
     //     { name: 'A Star is Born' },
     // ],
-    token:
-        'BQDr6IIJj6p2iVBjEe0ILc_4qV3MeLBPpgnrcLo1xP0-jUu6Ng…Ig56kci9e-9mddkmeyXZNg5q2MrsYNwxJxLmPZbpVRmuHOj9E',
+    // token:
+    //     'BQDr6IIJj6p2iVBjEe0ILc_4qV3MeLBPpgnrcLo1xP0-jUu6Ng…Ig56kci9e-9mddkmeyXZNg5q2MrsYNwxJxLmPZbpVRmuHOj9E',
 };
 
 export const reducer = (state = initialState, action) => {

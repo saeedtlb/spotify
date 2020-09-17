@@ -28,12 +28,12 @@ export const getToken = async token => {
             };
         });
 
-        const { item } = await spotify.getMyCurrentPlayingTrack();
+        const { items } = await spotify.getMyRecentlyPlayedTracks({ limit: 1 });
         data['latest_song'] = {
-            id: item.id,
-            name: item.name,
-            artists: item.artists,
-            cover: item.album.images,
+            id: items[0].track.id,
+            name: items[0].track.name,
+            artists: items[0].track.artists.map(artist => artist.name),
+            cover: items[0].track.album.images[2],
         };
 
         const { playlists } = await spotify.getFeaturedPlaylists({ limit: 6 });

@@ -1,0 +1,100 @@
+.playlist {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  overflow-y: scroll;
+}
+
+.playlist__detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+  padding: 40px 10px 15px 30px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-25%, #a0a0a0), color-stop(60%, #141a23));
+  background: linear-gradient(#a0a0a0 -25%, #141a23 60%);
+  color: #fff;
+  line-height: 2.3em;
+}
+
+.playlist__detail .cover {
+  width: 300px;
+  height: 300px;
+}
+
+.playlist__detail .info h3 {
+  font-weight: 400;
+}
+
+.playlist__detail .info h1 {
+  font-weight: 700;
+}
+
+.playlist__detail .btns {
+  margin-top: 20px;
+}
+
+.playlist__detail .btns button {
+  text-transform: uppercase;
+  border-radius: 99px;
+  cursor: pointer;
+}
+
+.playlist__detail .btns .play {
+  border: none;
+  padding: 10px 30px;
+  color: #000;
+  margin-right: 25px;
+  font-weight: 700;
+  background: -webkit-gradient(linear, right top, left top, color-stop(-35.92%, #1ed761), color-stop(141.27%, #1e64d7));
+  background: linear-gradient(270deg, #1ed761 -35.92%, #1e64d7 141.27%);
+}
+
+.playlist__detail .btns .follow {
+  padding: 10px 40px;
+  border: 1px solid #808080;
+  background: none;
+  color: #fff;
+}
+
+.playlist__songs {
+  height: 60%;
+  overflow-y: scroll;
+  background: #020916;
+}
+
+.playlist__songs table {
+  background: #020916;
+}
+
+.playlist__songs table th {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+  border-color: #2d2d2d;
+}
+
+.playlist__songs table td {
+  text-transform: capitalize;
+  border: none;
+  color: #fff;
+}
+
+.playlist__songs table svg {
+  margin-right: 10px;
+}
+
+.playlist__songs table tbody tr {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.playlist__songs table tbody tr:hover {
+  background: #182131;
+}
+/*# sourceMappingURL=playlist.css.map */

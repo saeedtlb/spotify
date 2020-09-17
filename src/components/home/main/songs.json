@@ -1,5 +1,6 @@
 {
     "name": "qlmhuge_cluster-one_discovery",
+    "description": "",
     "images": [
         {
             "height": 640,
@@ -8,7 +9,7 @@
         },
         {
             "height": 300,
-            "url": "https://mosaic.scdn.co/300/ab67616d0000b273248a1fe…cf234e121ab67616d0000b273849fc3d918e6e0b74f484a87",
+            "url": "https://mosaic.scdn.co/300/ab67616d0000b273248a1fed548434258c112e34ab67616d0000b27340e2d206da90278ea3d79350ab67616d0000b27382409a6c0e26619cf234e121ab67616d0000b273849fc3d918e6e0b74f484a87",
             "width": 300
         },
         {

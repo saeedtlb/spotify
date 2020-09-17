@@ -1,42 +1,64 @@
 import React, { useEffect, useState } from 'react';
 
-// import spotifyWebApi from 'spotify-web-api-js';
+import '../../../Resources/Css/playlist.css';
 
-// const spotify = new spotifyWebApi();
+import SongTable from './SongTable';
+
+import spotifyWebApi from 'spotify-web-api-js';
+
+const spotify = new spotifyWebApi();
 
 const Playlist = props => {
     const [playlist_detail, setPlaylist] = useState({});
 
     useEffect(() => {
-        // spotify
-        //     .getPlaylist(props.play_id)
-        //     .then(res => {
-        //         const { name, tracks, images } = res;
-        //         setPlaylist(prev => ({
-        //             ...prev,
-        //             name,
-        //             images,
-        //             tracks: tracks.items.map(_track => ({
-        //                 added: _track.added_at,
-        //                 name: _track.track.name,
-        //                 artists: _track.track.artists.map(
-        //                     artist => artist.name
-        //                 ),
-        //             })),
-        //         }));
-        //     })
-        //     .catch(err => console.log(2222, err));
-        fetch('./songs.json')
-            .then(res => res.json())
-            // .then(data => console.log(22, data))
-            .catch(err => console.log(err));
+        console.log(props.match);
+        spotify
+            .getPlaylist(props.match.params.play_id)
+            .then(res => {
+                const { name, tracks, images } = res;
+                setPlaylist(prev => ({
+                    ...prev,
+                    name,
+                    images,
+                    tracks: tracks.items.map(_track => ({
+                        added: _track.added_at,
+                        name: _track.track.name,
+                        artists: _track.track.artists.map(
+                            artist => artist.name
+                        ),
+                    })),
+                }));
+            })
+            .catch(err => console.log(2222, err));
     }, []);
 
-    console.log(999999, playlist_detail);
-
     return (
-        <div>
-            <h2>playlist</h2>
+        <div className='playlist'>
+            <div className='playlist__detail'>
+                <div className='cover'>
+                    {playlist_detail.images ? (
+                        <img
+                            src={playlist_detail.images[0].url}
+                            alt='playlist cover'
+                        />
+                    ) : (
+                        <img src='/Images/no_image.png' alt='playlist cover' />
+                    )}
+                </div>
+                <div className='info'>
+                    <h3>playlist</h3>
+                    <h1>{playlist_detail.name}</h1>
+                    <p>{playlist_detail.description}</p>
+                    <div className='btns'>
+                        <button className='play'>play</button>
+                        <button className='follow'>follow</button>
+                    </div>
+                </div>
+            </div>
+            <div className='playlist__songs'>
+                <SongTable tracks={playlist_detail.tracks} />
+            </div>
         </div>
     );
 };

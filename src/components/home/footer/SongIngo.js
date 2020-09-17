@@ -5,20 +5,14 @@ import { useStateValue } from '../../DataLayer';
 const SongIngo = () => {
     const [{ latest_song }] = useStateValue();
 
-    const render_Artists = () => {
-        return latest_song.artists
-            ? latest_song.artists.map(artist => artist.name).join(', ')
-            : '';
-    };
-
     return (
         <div className='song'>
             <div className='cover'>
                 {latest_song.cover ? (
                     <img
-                        src={latest_song.cover[2].url}
-                        width={latest_song.cover[2].width}
-                        height={latest_song.cover[2].height}
+                        src={latest_song.cover.url}
+                        width='64px'
+                        height='64px'
                         alt='song cover'
                     />
                 ) : (
@@ -35,7 +29,9 @@ const SongIngo = () => {
                     <p>
                         <span>{latest_song.name}</span>
                         <br />
-                        {render_Artists()}
+                        {latest_song.artists
+                            ? latest_song.artists.join(', ')
+                            : ''}
                     </p>
                 </div>
             </div>

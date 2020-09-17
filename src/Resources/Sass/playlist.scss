@@ -1,0 +1,87 @@
+.playlist {
+    grid-column: 2/4;
+    grid-row: 1;
+    overflow-y: scroll;
+
+    &__detail {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        padding: 40px 10px 15px 30px;
+        background: linear-gradient(#a0a0a0 -25%, #141a23 60%);
+        color: #fff;
+        line-height: 2.3em;
+
+        .cover {
+            width: 300px;
+            height: 300px;
+        }
+        .info {
+            h3 {
+                font-weight: 400;
+            }
+            h1 {
+                font-weight: 700;
+            }
+        }
+        .btns {
+            margin-top: 20px;
+            button {
+                text-transform: uppercase;
+                border-radius: 99px;
+                cursor: pointer;
+            }
+
+            .play {
+                border: none;
+                padding: 10px 30px;
+                color: #000;
+                margin-right: 25px;
+                font-weight: 700;
+                background: linear-gradient(
+                    270deg,
+                    #1ed761 -35.92%,
+                    #1e64d7 141.27%
+                );
+            }
+            .follow {
+                padding: 10px 40px;
+                border: 1px solid #808080;
+                background: none;
+                color: #fff;
+            }
+        }
+    }
+
+    &__songs {
+        height: 60%;
+        overflow-y: scroll;
+        background: #020916;
+
+        table {
+            background: #020916;
+
+            th {
+                text-transform: uppercase;
+                font-weight: 400;
+                color: #808080;
+                border-color: #2d2d2d;
+            }
+            td {
+                text-transform: capitalize;
+                border: none;
+                color: #fff;
+            }
+            svg {
+                margin-right: 10px;
+            }
+            tbody tr {
+                transition: all 0.5s ease;
+
+                &:hover {
+                    background: #182131;
+                }
+            }
+        }
+    }
+}
