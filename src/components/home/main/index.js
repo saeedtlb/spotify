@@ -8,7 +8,6 @@ import { useStateValue } from '../../DataLayer';
 
 const Main = () => {
     const [{ featured }] = useStateValue();
-    console.log(888, featured);
 
     const renderCards = () =>
         featured.length > 0
