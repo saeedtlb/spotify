@@ -4,6 +4,26 @@
   grid-column: 2/4;
   -ms-grid-row: 1;
   grid-row: 1;
-  background-color: lightgreen;
+  background: #020916;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+.main .featured__title {
+  border-bottom: 1px solid #808080;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.main .featured__playlists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 30px;
 }
 /*# sourceMappingURL=main.css.map */

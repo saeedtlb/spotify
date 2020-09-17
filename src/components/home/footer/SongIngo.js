@@ -4,7 +4,6 @@ import { useStateValue } from '../../DataLayer';
 
 const SongIngo = () => {
     const [{ latest_song }] = useStateValue();
-    console.log(7777, latest_song);
 
     const render_Artists = () => {
         return latest_song.artists

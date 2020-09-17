@@ -36,6 +36,14 @@ export const getToken = async token => {
             cover: item.album.images,
         };
 
+        const { playlists } = await spotify.getFeaturedPlaylists({ limit: 6 });
+        data['featured'] = playlists.items.map(_playlist => ({
+            description: _playlist.description,
+            id: _playlist.id,
+            image: _playlist.images[0].url,
+            name: _playlist.name,
+        }));
+
         return {
             type: SET_USER,
             payload: data,

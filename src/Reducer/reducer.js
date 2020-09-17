@@ -12,7 +12,19 @@ export const initialState = {
         artists: [{ name: 'the beatels' }, { name: 'paul mcCaurteny' }],
         name: 'yseterday',
     },
+    // featured: [],
     // playlists: [],
+    // token: null,
+    featured: [
+        {
+            description:
+                'Your Ultimate 2007 Mixtape. #SpotifyTBT Cover: Amy Winehouse',
+            id: '54343454',
+            image:
+                'https://i.scdn.co/image/ab67706f000000035641d7bd5341dadcb6332869',
+            name: 'Throwback thursday',
+        },
+    ],
     playlists: [
         { name: 'pop goes classic' },
         { name: 'metalica' },
@@ -20,7 +32,6 @@ export const initialState = {
         { name: 'AC/DC' },
         { name: 'A Star is Born' },
     ],
-    // token: null,
     token:
         'BQDr6IIJj6p2iVBjEe0ILc_4qV3MeLBPpgnrcLo1xP0-jUu6Ng…Ig56kci9e-9mddkmeyXZNg5q2MrsYNwxJxLmPZbpVRmuHOj9E',
 };

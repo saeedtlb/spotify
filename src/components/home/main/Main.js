@@ -1,11 +1,35 @@
 import React from 'react';
 
+import Card from '../../utils/Card';
+
 import '../../../Resources/Css/main.css';
 
+import { useStateValue } from '../../DataLayer';
+
 const Main = () => {
+    const [{ featured }] = useStateValue();
+    console.log(888, featured);
+
+    const renderCards = () =>
+        featured.length > 0
+            ? featured.map(playlist => (
+                  <Card
+                      id={playlist.id}
+                      name={playlist.name}
+                      description={playlist.description}
+                      url={playlist.image}
+                  />
+              ))
+            : null;
+
     return (
         <div className='main'>
-            <h2>main</h2>
+            <div className='featured'>
+                <div className='featured__title'>
+                    <h3>featured playlist</h3>
+                </div>
+                <div className='featured__playlists'>{renderCards()}</div>
+            </div>
         </div>
     );
 };
