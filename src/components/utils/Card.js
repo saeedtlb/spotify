@@ -4,6 +4,8 @@ import '../../Resources/Css/card.css';
 
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const Card = ({ url, name, description, id }) => {
     return (
@@ -15,7 +17,9 @@ const Card = ({ url, name, description, id }) => {
                     <img src='/Images/no_image.png' alt='playlist cover' />
                 )}
                 <div className='mask'>
+                    <FavoriteBorderIcon />
                     <PlayCircleOutlineIcon />
+                    <MoreHorizIcon />
                 </div>
             </section>
             <div className='details'>
