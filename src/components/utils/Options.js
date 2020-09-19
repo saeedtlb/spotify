@@ -5,18 +5,19 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SidebarElement from './SidebarElement';
 
-const Options = ({ title, options = [] }) => {
+const Options = ({ title, options }) => {
     const [show, setShow] = useState(true);
 
     const renderLists = () =>
-        options.map((row, i) => (
-            <SidebarElement
-                key={row.id ? row.id : i}
-                txt={row.name ? row.name : row}
-                id={row.id ? row.id : null}
-            />
-        ));
-
+        options
+            ? options.map(row => (
+                  <SidebarElement
+                      txt={row.name ? row.name : row}
+                      id={row.id ? row.id : row.txt}
+                      key={row.id ? row.id : row.txt}
+                  />
+              ))
+            : null;
     return (
         <div className='option'>
             <div className='title' onClick={() => setShow(prev => !prev)}>
@@ -24,13 +25,7 @@ const Options = ({ title, options = [] }) => {
                 {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </div>
             <div className='scroll'>
-                <Collapse
-                    in={show}
-                    timeout='auto'
-                    // className={typeof options[0] === 'object' ? 'scroll' : null}
-                    // className='scroll'
-                    unmountOnExit
-                >
+                <Collapse in={show} timeout='auto' unmountOnExit>
                     {renderLists()}
                 </Collapse>
             </div>

@@ -13,6 +13,7 @@ const Main = () => {
         featured.length > 0
             ? featured.map(playlist => (
                   <Card
+                      key={playlist.id}
                       id={playlist.id}
                       name={playlist.name}
                       description={playlist.description}

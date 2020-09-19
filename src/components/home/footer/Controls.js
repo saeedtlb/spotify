@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { useStateValue } from '../../DataLayer';
 
@@ -11,26 +11,38 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import LoopIcon from '@material-ui/icons/Loop';
 
-const Controls = () => {
-    const [{ playing }, dispatch] = useStateValue();
+// import spotifyWebApi from 'spotify-web-api-js';
 
-    const togglePlay = () => dispatch(toggle_play_status(!playing));
+// const spotify = new spotifyWebApi();
+
+const Controls = ({ volume }) => {
+    const [{ playing, song }, dispatch] = useStateValue();
+    const ref = useRef();
+
+    const togglePlay = status => {
+        dispatch(toggle_play_status(status));
+        status ? ref.current.play() : ref.current.pause();
+    };
+
+    useEffect(() => {
+        ref.current.volume = volume / 100;
+    }, [volume]);
 
     return (
-        // <div className='song'>
         <div>
+            <audio ref={ref} src={song.url ? song.url : ''}></audio>
             <div className='control'>
                 <ShuffleIcon />
                 <SkipPreviousIcon />
                 {playing ? (
                     <PauseCircleOutlineIcon
                         className='play_pause'
-                        onClick={togglePlay}
+                        onClick={() => togglePlay(false)}
                     />
                 ) : (
                     <PlayCircleOutlineIcon
                         className='play_pause'
-                        onClick={togglePlay}
+                        onClick={() => togglePlay(true)}
                     />
                 )}
                 <SkipNextIcon />

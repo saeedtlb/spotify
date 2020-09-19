@@ -1,6 +1,6 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
-import { SET_USER, TOGGLE_PLAY } from './types';
+import { SET_USER, TOGGLE_PLAY, GET_SONG } from './types';
 
 const spotify = new SpotifyWebApi();
 
@@ -29,7 +29,7 @@ export const getToken = async token => {
         });
 
         const { items } = await spotify.getMyRecentlyPlayedTracks({ limit: 1 });
-        data['latest_song'] = {
+        data['song'] = {
             id: items[0].track.id,
             name: items[0].track.name,
             artists: items[0].track.artists.map(artist => artist.name),
@@ -57,3 +57,23 @@ export const toggle_play_status = status => ({
     type: TOGGLE_PLAY,
     playing: status,
 });
+
+export const get_song = async id => {
+    try {
+        const data = await spotify.getTrack(id);
+        const song = !data
+            ? 'no song'
+            : {
+                  name: data.name,
+                  cover: data.album.images[2],
+                  url: data.preview_url,
+              };
+
+        return {
+            type: GET_SONG,
+            payload: song,
+        };
+    } catch (err) {
+        console.log(err);
+    }
+};

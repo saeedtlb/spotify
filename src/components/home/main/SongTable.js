@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { useStateValue } from '../../DataLayer';
+
+import { get_song } from '../../../Actions/user';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,17 +13,27 @@ import TableRow from '@material-ui/core/TableRow';
 
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-// import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import AddIcon from '@material-ui/icons/Add';
 
 const SongTable = ({ tracks }) => {
+    const [{ playing }, dispatch] = useStateValue();
+
+    const playSong = id => get_song(id).then(data => dispatch(data));
+
     const renderSongs = () =>
         tracks
             ? tracks.map((track, i) => (
                   <TableRow key={i}>
                       <TableCell align='center'>
                           <AddIcon />
-                          <PlayCircleOutlineIcon />
+                          {playing ? (
+                              <PauseCircleOutlineIcon />
+                          ) : (
+                              <PlayCircleOutlineIcon
+                                  onClick={() => playSong(track.id)}
+                              />
+                          )}
                       </TableCell>
                       <TableCell align='left'>{track.name}</TableCell>
                       <TableCell align='left'>

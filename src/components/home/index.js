@@ -12,9 +12,9 @@ import Playlist from './main/Playlist';
 const Body = () => {
     return (
         <div className='home'>
-            <LeftSideBar />
-            <Player />
             <BrowserRouter>
+                <LeftSideBar />
+                <Player />
                 <Switch>
                     <Route exact path='/' component={Main} />
                     <Route

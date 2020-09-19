@@ -19,12 +19,13 @@ const LeftSideBar = () => {
     ];
 
     const renderMainItems = () =>
-        original.map(item => (
+        original.map((item, i) => (
             <SidebarElement
+                key={i}
                 txt={item.txt}
                 Icon={item.icon}
                 style={{ textTransform: 'uppercase', marginLeft: '10px' }}
-                key={item.txt}
+                id={i}
             />
         ));
 

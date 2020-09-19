@@ -1,4 +1,4 @@
-import { SET_USER, SET_TOKEN, TOGGLE_PLAY } from '../Actions/types';
+import { SET_USER, SET_TOKEN, TOGGLE_PLAY, GET_SONG } from '../Actions/types';
 
 export const initialState = {
     display_name: null,
@@ -8,13 +8,15 @@ export const initialState = {
     image: null,
     user: null,
     playing: false,
-    latest_song: {},
+    song: {},
     featured: [],
     playlists: [],
     token: null,
-    // latest_song: {
+    // song: {
     //     artists: [{ name: 'the beatels' }, { name: 'paul mcCaurteny' }],
     //     name: 'yseterday',
+    //     prv:
+    //         'https://p.scdn.co/mp3-preview/cf95a6afa9293703378765c0da5e162cb1dced85?cid=5c15d7c30b744d5b8f8e435f01c9f405',
     // },
     // featured: [
     //     {
@@ -52,6 +54,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 playing: action.playing,
+            };
+        case GET_SONG:
+            return {
+                ...state,
+                song: action.payload,
             };
         default:
             return state;

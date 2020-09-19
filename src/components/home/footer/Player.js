@@ -29,7 +29,7 @@ const Player = () => {
                 </Grid>
 
                 <Grid item md={7}>
-                    <Controls />
+                    <Controls volume={volume} />
                 </Grid>
 
                 <Grid item md={2}>

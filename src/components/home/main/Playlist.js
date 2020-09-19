@@ -12,7 +12,6 @@ const Playlist = props => {
     const [playlist_detail, setPlaylist] = useState({});
 
     useEffect(() => {
-        console.log(props.match);
         spotify
             .getPlaylist(props.match.params.play_id)
             .then(res => {
@@ -22,6 +21,7 @@ const Playlist = props => {
                     name,
                     images,
                     tracks: tracks.items.map(_track => ({
+                        id: _track.track.id,
                         added: _track.added_at,
                         name: _track.track.name,
                         artists: _track.track.artists.map(

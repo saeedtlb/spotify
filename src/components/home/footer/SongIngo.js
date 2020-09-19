@@ -3,14 +3,14 @@ import React from 'react';
 import { useStateValue } from '../../DataLayer';
 
 const SongIngo = () => {
-    const [{ latest_song }] = useStateValue();
+    const [{ song }] = useStateValue();
 
     return (
         <div className='song'>
             <div className='cover'>
-                {latest_song.cover ? (
+                {song.cover ? (
                     <img
-                        src={latest_song.cover.url}
+                        src={song.cover.url}
                         width='64px'
                         height='64px'
                         alt='song cover'
@@ -27,11 +27,9 @@ const SongIngo = () => {
             <div className='info'>
                 <div className='texts'>
                     <p>
-                        <span>{latest_song.name}</span>
+                        <span>{song.name}</span>
                         <br />
-                        {latest_song.artists
-                            ? latest_song.artists.join(', ')
-                            : ''}
+                        {song.artists ? song.artists.join(', ') : ''}
                     </p>
                 </div>
             </div>

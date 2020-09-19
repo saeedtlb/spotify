@@ -1,13 +1,17 @@
 import React from 'react';
 
-const SidebarElement = ({ Icon = null, txt, style }) => {
+import { Link } from 'react-router-dom';
+
+const SidebarElement = ({ Icon = null, txt, style, id }) => {
     return (
-        <div className='side_option'>
+        <div className='side_option' key={id}>
             {Icon ? <Icon /> : null}
             {Icon ? (
                 <span style={style}>{txt}</span>
             ) : (
-                <p style={style}>{txt}</p>
+                <Link to={`/playlist/${id}`}>
+                    <p style={style}>{txt}</p>
+                </Link>
             )}
         </div>
     );
