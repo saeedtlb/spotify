@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import '../../Resources/Css/home.css';
 
@@ -10,10 +10,12 @@ import Main from './main';
 import Playlist from './main/Playlist';
 
 const Body = () => {
+    const leftSideBar = useMemo(() => <LeftSideBar />, []);
+
     return (
         <div className='home'>
             <BrowserRouter>
-                <LeftSideBar />
+                {leftSideBar}
                 <Player />
                 <Switch>
                     <Route exact path='/' component={Main} />

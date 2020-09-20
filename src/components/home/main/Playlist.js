@@ -8,6 +8,8 @@ import spotifyWebApi from 'spotify-web-api-js';
 
 const spotify = new spotifyWebApi();
 
+// import songs from './songs.json';
+
 const Playlist = props => {
     const [playlist_detail, setPlaylist] = useState({});
 
@@ -31,6 +33,7 @@ const Playlist = props => {
                 }));
             })
             .catch(err => console.log(2222, err));
+        // setPlaylist(songs);
     }, []);
 
     return (
