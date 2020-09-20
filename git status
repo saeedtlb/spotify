@@ -1,0 +1,119 @@
+[33mcommit 845227dd5e8c37c55eb4fd3ead3be97d4e4de99d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32moptimize[m[33m)[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Sat Sep 19 19:05:48 2020 +0430
+
+    get preview song url and play it
+
+[33mcommit 3e7f9b797358922d5fdc0148fd4c6ddfc52c4a3b[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Thu Sep 17 20:52:25 2020 +0430
+
+    finish showing playlist song in a good format
+
+[33mcommit 00e819b787d94e5fe0ccc002723a7afa8a06f3d2[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Thu Sep 17 17:23:27 2020 +0430
+
+    fetche playlist song and it's own data from spotify api and now working on ui to show them
+
+[33mcommit cbafc5f0dbad66f2be7c498d9b89a65bbf19a91f[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Thu Sep 17 17:20:46 2020 +0430
+
+    added router to the page for playlist page
+
+[33mcommit 0b0f9230f4184b37bd5d31a49177caa99ccfe55b[m[33m ([m[1;32mmain[m[33m)[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Thu Sep 17 15:59:46 2020 +0430
+
+    finish styling playlist
+
+[33mcommit b6ae1fb52f65c6fa6799a5b70a872e5a8f23bccd[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Thu Sep 17 14:11:55 2020 +0430
+
+    fetches featured playlist and show them also work on ui to make better expirence
+
+[33mcommit e7567aa229103b40e162fbf1e7e04fbac69fdc8e[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Wed Sep 16 15:40:24 2020 +0430
+
+    make some changes to file names and create a folder for main part of web
+
+[33mcommit 0005ef08b457c0b53a6823323d89eb0e1c75f1b7[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Wed Sep 16 15:32:07 2020 +0430
+
+    finish working on footer section(player), now go to main part
+
+[33mcommit 3ea101aa9234e5008ec2c07faaa1eca18dd8e411[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Wed Sep 16 14:06:27 2020 +0430
+
+    finish song info section and it's data fetching
+
+[33mcommit b2ccb548bd4bad5e7c0a30205e166508f3b45093[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Tue Sep 15 20:55:59 2020 +0430
+
+    write functionality of getting song info and now working on ui to show them
+
+[33mcommit eef1240583a02aea775da06c01cec925ff7cdb18[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Tue Sep 15 18:03:50 2020 +0430
+
+    add icons related to play state
+
+[33mcommit 9f9df1577c96bdb018cbab7d286cd5a60ccd62a7[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Tue Sep 15 17:29:48 2020 +0430
+
+    finish volume component in player section(footer)
+
+[33mcommit 794bcb98f42b93d9efed9a4402fd1159cdc7e7c1[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Tue Sep 15 14:01:09 2020 +0430
+
+    make the playlist ui work and it gives user playlist from the data layer but clicking on it won't yet work
+
+[33mcommit a5056a847a3b6829f5676ecd07272e82644ba9f0[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Tue Sep 15 12:56:33 2020 +0430
+
+    finish library and original on sidebar section, now go to playlist section
+
+[33mcommit 11d5c1af39838093ec301dbfdc018d658b7de932[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Tue Sep 15 12:05:38 2020 +0430
+
+    work on left side bar
+
+[33mcommit 87e371aaa0f61b66d265bf49431b357084e241fc[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Mon Sep 14 21:27:21 2020 +0430
+
+    make grid layout for home
+
+[33mcommit d301eecef49ffb872ba15879bfa40adacb72ce11[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Mon Sep 14 21:07:56 2020 +0430
+
+    finish loging page and it's functionality and now start work on main spotify page
+
+[33mcommit 5913d3a0ae79d27a568c4d887f56e2a6a30a9356[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Mon Sep 14 14:14:22 2020 +0430
+
+    working on authenicate and login page but still has error
+
+[33mcommit 8826f59d55ae3adb86796c161d71b0af27127a77[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Mon Sep 14 12:13:18 2020 +0430
+
+    Setup a basic react project and ready to start coding
+
+[33mcommit 761c24cb7556388b5dc64ce0cca312a773c49b8b[m
+Author: saeed-tlb <saeedt7879s@gmail.com>
+Date:   Mon Sep 14 11:52:30 2020 +0430
+
+    Initialize project using Create React App
