@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Card from '../../utils/Card';
 
 import '../../../Resources/Css/main.css';
 
-import { useStateValue } from '../../DataLayer';
+import { useSongStateValue } from '../../DataLayer';
+
+import { getHomePlaylists } from '../../../Actions/song';
+
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Main = () => {
-    const [{ featured }] = useStateValue();
+    const [{ featured }, dispatch] = useSongStateValue();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (featured.length > 0) {
+            setLoading(false);
+        } else {
+            console.log('come');
+            getHomePlaylists()
+                .then(data => dispatch(data))
+                .catch(err => console.log('err in main home', err));
+        }
+    }, [featured.length]);
 
     const renderCards = () =>
         featured.length > 0
@@ -24,12 +40,18 @@ const Main = () => {
 
     return (
         <div className='main'>
-            <div className='featured'>
-                <div className='featured__title'>
-                    <h3>featured playlist</h3>
+            {!loading ? (
+                <div className='featured'>
+                    <div className='featured__title'>
+                        <h3>featured playlist</h3>
+                    </div>
+                    <div className='featured__playlists'>{renderCards()}</div>
                 </div>
-                <div className='featured__playlists'>{renderCards()}</div>
-            </div>
+            ) : (
+                <div className='loading'>
+                    <CircularProgress thickness={7} />
+                </div>
+            )}
         </div>
     );
 };

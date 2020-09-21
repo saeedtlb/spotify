@@ -1,4 +1,4 @@
-// @import 'varriables';
+@import 'varriables';
 
 .card {
     display: flex;
@@ -34,7 +34,7 @@
                 &:hover {
                     opacity: 1;
                     transform: scale(1.1);
-                    color: #46db70;
+                    color: $spotify;
                 }
             }
         }

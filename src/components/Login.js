@@ -3,13 +3,12 @@ import React, { useEffect } from 'react';
 import '../Resources/Css/Login.css';
 
 import { accessUrl } from './utils/spotify';
-import { useStateValue } from './DataLayer';
+import { useUserStateValue } from './DataLayer';
 
-import { SET_TOKEN } from '../Actions/types';
 import { getToken } from '../Actions/user';
 
 const Login = () => {
-    const [{ token }, dispatch] = useStateValue();
+    const [{ token }, dispatch] = useUserStateValue();
 
     useEffect(() => {
         const _token = window.location.hash
@@ -18,10 +17,7 @@ const Login = () => {
             .split('=')[1];
         if (_token) {
             window.location.hash = '';
-            dispatch({ type: SET_TOKEN, token: _token });
-            getToken(_token).then(data => {
-                dispatch(data);
-            });
+            getToken(_token).then(data => dispatch(data));
         }
     }, [token, dispatch]);
 

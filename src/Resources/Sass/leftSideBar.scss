@@ -1,3 +1,5 @@
+@import 'varriables';
+
 .left_bar {
     grid-column: 1/2;
     grid-row: 1;
@@ -33,7 +35,7 @@
             transition: color 0.2s ease-in;
 
             &:hover {
-                color: #46db70;
+                color: $spotify;
             }
 
             span,

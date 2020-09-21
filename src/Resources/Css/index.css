@@ -28,6 +28,8 @@ img {
   width: auto;
   max-height: 100%;
   display: inline-block;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a {

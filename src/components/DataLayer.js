@@ -1,13 +1,29 @@
 import React, { createContext, useContext, useReducer } from 'react';
 
-import { initialState, reducer } from '../Reducer/reducer';
+// import { initialState, reducer } from '../Reducer/songReducer';
+import {
+    initialState as user_initial,
+    userReducer,
+} from '../Reducer/userReducer';
+import {
+    initialState as song_initial,
+    songReducer,
+} from '../Reducer/songReducer';
 
-export const DataLayer = createContext(initialState);
+const DataLayerUser = createContext(user_initial);
+const DataLayerSong = createContext(song_initial);
 
-export const DataLayerProvider = ({ children }) => (
-    <DataLayer.Provider value={useReducer(reducer, initialState)}>
+export const UserDataLayerProvider = ({ children }) => (
+    <DataLayerUser.Provider value={useReducer(userReducer, user_initial)}>
         {children}
-    </DataLayer.Provider>
+    </DataLayerUser.Provider>
 );
 
-export const useStateValue = () => useContext(DataLayer);
+export const SongDataLayerProvider = ({ children }) => (
+    <DataLayerSong.Provider value={useReducer(songReducer, song_initial)}>
+        {children}
+    </DataLayerSong.Provider>
+);
+
+export const useUserStateValue = () => useContext(DataLayerUser);
+export const useSongStateValue = () => useContext(DataLayerSong);

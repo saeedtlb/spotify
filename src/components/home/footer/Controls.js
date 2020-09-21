@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-import { useStateValue } from '../../DataLayer';
+import { useSongStateValue } from '../../DataLayer';
 
-import { toggle_play_status } from '../../../Actions/user';
+import { toggle_play_status } from '../../../Actions/song';
 
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
@@ -11,12 +11,8 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import LoopIcon from '@material-ui/icons/Loop';
 
-// import spotifyWebApi from 'spotify-web-api-js';
-
-// const spotify = new spotifyWebApi();
-
 const Controls = ({ volume }) => {
-    const [{ playing, song }, dispatch] = useStateValue();
+    const [{ playing, song }, dispatch] = useSongStateValue();
     const ref = useRef();
 
     const togglePlay = status => {

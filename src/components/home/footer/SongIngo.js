@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useStateValue } from '../../DataLayer';
+import { useSongStateValue } from '../../DataLayer';
 
 const SongIngo = () => {
-    const [{ song }] = useStateValue();
+    const [{ song }] = useSongStateValue();
 
     return (
         <div className='song'>

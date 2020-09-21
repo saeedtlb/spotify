@@ -2,10 +2,10 @@ import React from 'react';
 
 import Options from '../../utils/Options';
 
-import { useStateValue } from '../../DataLayer';
+import { useSongStateValue } from '../../DataLayer';
 
 const PlayLists = () => {
-    const [{ playlists }] = useStateValue();
+    const [{ playlists }] = useSongStateValue();
 
     return <Options title='playlists' options={playlists} />;
 };

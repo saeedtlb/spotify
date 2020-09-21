@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useStateValue } from '../../DataLayer';
+import { useSongStateValue } from '../../DataLayer';
 
-import { get_song } from '../../../Actions/user';
+import { get_song } from '../../../Actions/song';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,7 +17,7 @@ import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import AddIcon from '@material-ui/icons/Add';
 
 const SongTable = ({ tracks }) => {
-    const [{ playing }, dispatch] = useStateValue();
+    const [{ playing }, dispatch] = useSongStateValue();
 
     const playSong = id => get_song(id).then(data => dispatch(data));
 

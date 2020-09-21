@@ -6,34 +6,34 @@ import SongTable from './SongTable';
 
 import spotifyWebApi from 'spotify-web-api-js';
 
-const spotify = new spotifyWebApi();
+// const spotify = new spotifyWebApi();
 
-// import songs from './songs.json';
+import songs from './songs.json';
 
 const Playlist = props => {
     const [playlist_detail, setPlaylist] = useState({});
 
     useEffect(() => {
-        spotify
-            .getPlaylist(props.match.params.play_id)
-            .then(res => {
-                const { name, tracks, images } = res;
-                setPlaylist(prev => ({
-                    ...prev,
-                    name,
-                    images,
-                    tracks: tracks.items.map(_track => ({
-                        id: _track.track.id,
-                        added: _track.added_at,
-                        name: _track.track.name,
-                        artists: _track.track.artists.map(
-                            artist => artist.name
-                        ),
-                    })),
-                }));
-            })
-            .catch(err => console.log(2222, err));
-        // setPlaylist(songs);
+        // spotify
+        //     .getPlaylist(props.match.params.play_id)
+        //     .then(res => {
+        //         const { name, tracks, images } = res;
+        //         setPlaylist(prev => ({
+        //             ...prev,
+        //             name,
+        //             images,
+        //             tracks: tracks.items.map(_track => ({
+        //                 id: _track.track.id,
+        //                 added: _track.added_at,
+        //                 name: _track.track.name,
+        //                 artists: _track.track.artists.map(
+        //                     artist => artist.name
+        //                 ),
+        //             })),
+        //         }));
+        //     })
+        //     .catch(err => console.log(2222, err));
+        setPlaylist(songs);
     }, []);
 
     return (

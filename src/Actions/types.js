@@ -1,4 +1,7 @@
+// USER
 export const SET_USER = 'SET_USER';
-export const SET_TOKEN = 'SET_TOKEN';
+
+// SONGS
 export const TOGGLE_PLAY = 'TOGGLE_PLAY';
+export const GET_HOME_PLAYLISTS = 'GET_HOME_PLAYLISTS';
 export const GET_SONG = 'GET_SONG';

@@ -1,3 +1,5 @@
+@import 'varriables';
+
 .playlist {
     grid-column: 2/4;
     grid-row: 1;
@@ -40,7 +42,7 @@
                 font-weight: 700;
                 background: linear-gradient(
                     270deg,
-                    #1ed761 -35.92%,
+                    $spotify -35.92%,
                     #1e64d7 141.27%
                 );
             }

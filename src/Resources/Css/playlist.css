@@ -51,8 +51,8 @@
   color: #000;
   margin-right: 25px;
   font-weight: 700;
-  background: -webkit-gradient(linear, right top, left top, color-stop(-35.92%, #1ed761), color-stop(141.27%, #1e64d7));
-  background: linear-gradient(270deg, #1ed761 -35.92%, #1e64d7 141.27%);
+  background: -webkit-gradient(linear, right top, left top, color-stop(-35.92%, #46db70), color-stop(141.27%, #1e64d7));
+  background: linear-gradient(270deg, #46db70 -35.92%, #1e64d7 141.27%);
 }
 
 .playlist__detail .btns .follow {

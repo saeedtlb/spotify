@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 
 import './Resources/Css/index.css';
 
-import { DataLayerProvider } from './components/DataLayer';
+import { UserDataLayerProvider } from './components/DataLayer';
 import Routes from './Routes';
 
 ReactDOM.render(
-    <DataLayerProvider>
+    <UserDataLayerProvider>
         <Routes />
-    </DataLayerProvider>,
+    </UserDataLayerProvider>,
     document.getElementById('root')
 );

@@ -10,11 +10,12 @@ const Options = ({ title, options }) => {
 
     const renderLists = () =>
         options
-            ? options.map(row => (
+            ? options.map((row, i) => (
                   <SidebarElement
                       txt={row.name ? row.name : row}
                       id={row.id ? row.id : row.txt}
-                      key={row.id ? row.id : row.txt}
+                      //   key={row.id ? row.id : row.txt}
+                      key={i}
                   />
               ))
             : null;
