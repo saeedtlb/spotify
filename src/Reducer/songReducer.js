@@ -1,4 +1,9 @@
-import { TOGGLE_PLAY, GET_SONG } from '../Actions/types';
+import {
+    TOGGLE_PLAY,
+    GET_SONG,
+    GET_PLAYLIST_INFO,
+    GET_HOME_PLAYLISTS,
+} from '../Actions/types';
 
 export const initialState = {
     song: {},
@@ -43,6 +48,19 @@ export const songReducer = (state = initialState, action) => {
             return {
                 ...state,
                 song: action.payload,
+            };
+        case GET_HOME_PLAYLISTS:
+            const { featured, song, playlists } = action.payload;
+            return {
+                ...state,
+                featured,
+                song,
+                playlists,
+            };
+        case GET_PLAYLIST_INFO:
+            return {
+                ...state,
+                playlist_info: action.payload,
             };
         default:
             return state;

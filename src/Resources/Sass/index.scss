@@ -1,1 +1,17 @@
 @import 'initial';
+@import 'varriables';
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+
+    svg {
+        color: $spotify;
+    }
+}
+
+.err {
+    color: red;
+}

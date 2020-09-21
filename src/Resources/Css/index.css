@@ -36,4 +36,20 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+}
+
+.loading svg {
+  color: #46db70;
+}
+
+.err {
+  color: red;
+}
 /*# sourceMappingURL=index.css.map */

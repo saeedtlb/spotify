@@ -4,9 +4,7 @@ import '../../Resources/Css/home.css';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { SongDataLayerProvider, useSongStateValue } from '../DataLayer';
-
-import { getHomePlaylists } from '../../Actions/song';
+import { SongDataLayerProvider } from '../DataLayer';
 
 import LeftSideBar from './sidebar/LeftSideBar';
 import Player from './footer/Player';

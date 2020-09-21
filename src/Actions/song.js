@@ -1,10 +1,15 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
-import { GET_HOME_PLAYLISTS, GET_SONG, TOGGLE_PLAY } from './types';
+import {
+    GET_HOME_PLAYLISTS,
+    GET_SONG,
+    TOGGLE_PLAY,
+    GET_PLAYLIST_INFO,
+} from './types';
 
 const spotify = new SpotifyWebApi();
 
-export const getHomePlaylists = async () => {
+export const get_Home_Playlists = async () => {
     let data = {};
     const playlist = await spotify.getUserPlaylists();
     data['playlists'] = playlist.items.map(_play => {
@@ -61,5 +66,28 @@ export const get_song = async id => {
         };
     } catch (err) {
         console.log(err);
+    }
+};
+
+export const get_Playlist_info = async id => {
+    try {
+        const { name, tracks, images } = await spotify.getPlaylist(id);
+        const data = {
+            name,
+            images,
+            tracks: tracks.items.map(_track => ({
+                id: _track.track.id,
+                added: _track.added_at,
+                name: _track.track.name,
+                artists: _track.track.artists.map(artist => artist.name),
+            })),
+        };
+
+        return {
+            type: GET_PLAYLIST_INFO,
+            payload: data,
+        };
+    } catch (err) {
+        console.log('song action(get_playlist_info)', err);
     }
 };

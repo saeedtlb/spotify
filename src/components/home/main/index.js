@@ -6,7 +6,7 @@ import '../../../Resources/Css/main.css';
 
 import { useSongStateValue } from '../../DataLayer';
 
-import { getHomePlaylists } from '../../../Actions/song';
+import { get_Home_Playlists } from '../../../Actions/song';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -18,8 +18,7 @@ const Main = () => {
         if (featured.length > 0) {
             setLoading(false);
         } else {
-            console.log('come');
-            getHomePlaylists()
+            get_Home_Playlists()
                 .then(data => dispatch(data))
                 .catch(err => console.log('err in main home', err));
         }
