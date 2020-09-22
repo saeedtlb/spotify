@@ -4,6 +4,8 @@ import { useSongStateValue } from '../../DataLayer';
 
 import { get_song } from '../../../Actions/song';
 
+import Loading from '../../utils/Loading';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -20,6 +22,14 @@ const SongTable = ({ tracks }) => {
     const [{ playing }, dispatch] = useSongStateValue();
 
     const playSong = id => get_song(id).then(data => dispatch(data));
+    // const playSong = id =>
+    //     dispatch({
+    //         type: 'GET_SONG',
+    //         payload: {
+    //             url: '',
+    //             name: 'levis',
+    //         },
+    //     });
 
     const renderSongs = () =>
         tracks
@@ -46,7 +56,7 @@ const SongTable = ({ tracks }) => {
     return (
         <>
             {!tracks ? (
-                <h1>loading...</h1>
+                <Loading />
             ) : (
                 <TableContainer>
                     <Table>

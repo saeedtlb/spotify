@@ -7,9 +7,9 @@ import SongTable from './SongTable';
 import { useSongStateValue } from '../../DataLayer';
 import { get_Playlist_info } from '../../../Actions/song';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Loading from '../../utils/Loading';
 
-// import songs from './songs.json';
+// import playlist_info from './songs.json';
 
 const Playlist = props => {
     const initial = { status: true, msg: '', err: false };
@@ -31,15 +31,16 @@ const Playlist = props => {
                         'Somthing in requesting for data went wrong, please try later',
                 });
             });
-        // setPlaylist(songs);
-    }, []);
+
+        // if (playlist_info) {
+        //     setLoading(prev => ({ ...prev, ...initial, status: false }));
+        // }
+    }, [props.match.params.play_id, dispatch, initial]);
 
     return (
         <div className='playlist'>
             {loading.status ? (
-                <div className='loading'>
-                    <CircularProgress thickness={7} />
-                </div>
+                <Loading />
             ) : loading.err ? (
                 <div className='err'>
                     <h2>{loading.msg}</h2>

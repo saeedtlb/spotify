@@ -8,7 +8,7 @@ import { useSongStateValue } from '../../DataLayer';
 
 import { get_Home_Playlists } from '../../../Actions/song';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Loading from '../../utils/Loading';
 
 const Main = () => {
     const [{ featured }, dispatch] = useSongStateValue();
@@ -22,17 +22,18 @@ const Main = () => {
                 .then(data => dispatch(data))
                 .catch(err => console.log('err in main home', err));
         }
-    }, [featured.length]);
+    }, [featured.length, dispatch]);
 
     const renderCards = () =>
         featured.length > 0
             ? featured.map(playlist => (
                   <Card
                       key={playlist.id}
-                      id={playlist.id}
+                      //   id={playlist.id}
                       name={playlist.name}
                       description={playlist.description}
                       url={playlist.image}
+                      linkTo={`/playlist/${playlist.id}`}
                   />
               ))
             : null;
@@ -47,9 +48,7 @@ const Main = () => {
                     <div className='featured__playlists'>{renderCards()}</div>
                 </div>
             ) : (
-                <div className='loading'>
-                    <CircularProgress thickness={7} />
-                </div>
+                <Loading />
             )}
         </div>
     );
