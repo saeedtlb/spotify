@@ -14,7 +14,6 @@ const Options = ({ title, options }) => {
                   <SidebarElement
                       txt={row.name ? row.name : row}
                       id={row.id ? row.id : row.txt}
-                      //   key={row.id ? row.id : row.txt}
                       key={i}
                   />
               ))

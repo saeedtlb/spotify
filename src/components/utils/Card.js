@@ -9,10 +9,10 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
-const Card = ({ url, name, description, id }) => {
+const Card = ({ url, name, description = null, linkTo }) => {
     return (
-        <div className='card' key={id}>
-            <Link to={`/playlist/${id}`} className='cover'>
+        <div className='card'>
+            <Link to={linkTo} className='cover'>
                 {url ? (
                     <img src={url} alt='playlist cover' />
                 ) : (
