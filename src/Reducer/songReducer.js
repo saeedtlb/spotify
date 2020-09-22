@@ -3,6 +3,7 @@ import {
     GET_SONG,
     GET_PLAYLIST_INFO,
     GET_HOME_PLAYLISTS,
+    GET_CATEGORIES,
 } from '../Actions/types';
 
 export const initialState = {
@@ -11,9 +12,9 @@ export const initialState = {
     playlists: [],
     playing: false,
     // song: {
-    //     artists: [{ name: 'the beatels' }, { name: 'paul mcCaurteny' }],
+    //     artists: ['the beatels', 'paul mcCaurteny'],
     //     name: 'yseterday',
-    //     prv:
+    //     url:
     //         'https://p.scdn.co/mp3-preview/cf95a6afa9293703378765c0da5e162cb1dced85?cid=5c15d7c30b744d5b8f8e435f01c9f405',
     // },
     // featured: [
@@ -27,11 +28,11 @@ export const initialState = {
     //     },
     // ],
     // playlists: [
-    //     { name: 'pop goes classic' },
-    //     { name: 'metalica' },
-    //     { name: 'coldplay' },
-    //     { name: 'AC/DC' },
-    //     { name: 'A Star is Born' },
+    //     { name: 'pop goes classic', id: '1' },
+    //     { name: 'metalica', id: '2' },
+    //     { name: 'coldplay', id: '3' },
+    //     { name: 'AC/DC', id: '4' },
+    //     { name: 'A Star is Born', id: '5' },
     // ],
 };
 
@@ -61,6 +62,11 @@ export const songReducer = (state = initialState, action) => {
             return {
                 ...state,
                 playlist_info: action.payload,
+            };
+        case GET_CATEGORIES:
+            return {
+                ...state,
+                categories: action.payload,
             };
         default:
             return state;
