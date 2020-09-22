@@ -10,6 +10,8 @@ import LeftSideBar from './sidebar/LeftSideBar';
 import Player from './footer/Player';
 import Main from './main';
 import Playlist from './main/Playlist';
+import Categories from './main/category';
+import Category from './main/category/Category';
 
 const Body = () => {
     const leftSideBar = useMemo(() => <LeftSideBar />, []);
@@ -26,6 +28,12 @@ const Body = () => {
                             exact
                             path='/playlist/:play_id'
                             component={Playlist}
+                        />
+                        <Route exact path='/browse' component={Categories} />
+                        <Route
+                            exact
+                            path='/category/:category_id'
+                            component={Category}
                         />
                     </Switch>
                 </BrowserRouter>
