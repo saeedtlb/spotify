@@ -1,0 +1,23 @@
+.categories {
+    grid-column: 2/4;
+    background: #000;
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 25px;
+
+    .card {
+        img {
+            max-width: fit-content;
+        }
+        .details {
+            height: 15%;
+            display: grid;
+            place-items: center;
+        }
+        .mask svg {
+            color: #fff;
+        }
+    }
+}

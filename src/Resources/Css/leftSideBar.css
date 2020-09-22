@@ -35,6 +35,18 @@
 }
 
 .left_bar .navigation .side_option {
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+
+.left_bar .navigation .side_option:hover {
+  color: #46db70;
+}
+
+.left_bar .navigation .side_option a {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,14 +56,6 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-top: 10px;
-  cursor: pointer;
-  -webkit-transition: color 0.2s ease-in;
-  transition: color 0.2s ease-in;
-}
-
-.left_bar .navigation .side_option:hover {
-  color: #46db70;
 }
 
 .left_bar .navigation .side_option span,

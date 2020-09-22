@@ -12,7 +12,6 @@
     flex-direction: column;
 
     .logo {
-        // height: 10%;
         margin-bottom: 30px;
         text-align: center;
 
@@ -23,19 +22,22 @@
     }
 
     .navigation {
-        // height: 100%;
         color: #fff;
 
         .side_option {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
             margin-top: 10px;
             cursor: pointer;
             transition: color 0.2s ease-in;
 
             &:hover {
                 color: $spotify;
+            }
+
+            a {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
 
             span,

@@ -70,6 +70,8 @@
 .card .details {
   text-transform: capitalize;
   font-weight: 700;
+  color: #fff;
+  text-align: center;
 }
 
 .card .details .description {
