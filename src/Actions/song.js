@@ -5,6 +5,7 @@ import {
     GET_SONG,
     TOGGLE_PLAY,
     GET_PLAYLIST_INFO,
+    GET_CATEGORIES,
 } from './types';
 
 const spotify = new SpotifyWebApi();
@@ -52,12 +53,14 @@ export const toggle_play_status = status => ({
 export const get_song = async id => {
     try {
         const data = await spotify.getTrack(id);
+        console.log(85, data);
         const song = !data
             ? 'no song'
             : {
                   name: data.name,
                   cover: data.album.images[2],
                   url: data.preview_url,
+                  artists: data.artists.map(artist => artist.name),
               };
 
         return {
@@ -90,4 +93,18 @@ export const get_Playlist_info = async id => {
     } catch (err) {
         console.log('song action(get_playlist_info)', err);
     }
+};
+
+export const get_categories = async () => {
+    const { categories } = await spotify.getCategories();
+    const _categories = categories.items.map(category => ({
+        icon: category.icons[0].url,
+        name: category.name,
+        id: category.id,
+    }));
+
+    return {
+        type: GET_CATEGORIES,
+        payload: _categories,
+    };
 };
