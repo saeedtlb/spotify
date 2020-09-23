@@ -12,6 +12,7 @@ const Categories = () => {
     const [err, setErr] = useState(false);
     const [{ categories }, dispatch] = useSongStateValue();
 
+    // GET CATEGORIES
     useEffect(() => {
         get_categories()
             .then(data => {
@@ -30,14 +31,18 @@ const Categories = () => {
                 key={category.id}
                 name={category.name}
                 url={category.icon}
+                type='category'
                 linkTo={`/category/${category.id}`}
             />
         ));
 
     return (
-        <div className='categories'>
+        <div className='categories main'>
+            <div className='categories__header'>
+                <h1>browse</h1>
+            </div>
             {categories ? (
-                renderCategories()
+                <div className='categories__items'>{renderCategories()}</div>
             ) : err ? (
                 <div className='err'>
                     <h2>somthing went wrong, please try again later</h2>

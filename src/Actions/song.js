@@ -1,11 +1,13 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
 import {
+    ERROR,
     GET_HOME_PLAYLISTS,
     GET_SONG,
     TOGGLE_PLAY,
     GET_PLAYLIST_INFO,
     GET_CATEGORIES,
+    GET_CATEGORY_PLAYLISTS,
 } from './types';
 
 const spotify = new SpotifyWebApi();
@@ -18,8 +20,6 @@ export const get_Home_Playlists = async () => {
             id: _play.id,
             image: _play.images[0].url,
             name: _play.name,
-            tracks: _play.tracks.href,
-            href: _play.href,
         };
     });
 
@@ -107,4 +107,32 @@ export const get_categories = async () => {
         type: GET_CATEGORIES,
         payload: _categories,
     };
+};
+
+export const get_category_playlists = async id => {
+    try {
+        const { playlists } = await spotify.getCategoryPlaylists(id);
+
+        console.log(444, playlists);
+
+        const data = playlists.items.map(playlist => ({
+            name: playlist.name,
+            id: playlist.id,
+            image: playlist.images[0].url,
+            description: playlist.description,
+        }));
+
+        console.log(111, data);
+
+        return {
+            type: GET_CATEGORY_PLAYLISTS,
+            payload: data,
+        };
+    } catch (err) {
+        console.log('get_category_playlists' + err);
+        return {
+            type: ERROR,
+            payload: 'somthing went wrong in getting category playlists',
+        };
+    }
 };

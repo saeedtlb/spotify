@@ -9,7 +9,7 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
-const Card = ({ url, name, description = null, linkTo }) => {
+const Card = ({ url, name, description = null, linkTo, type }) => {
     return (
         <div className='card'>
             <Link to={linkTo} className='cover'>
@@ -18,18 +18,26 @@ const Card = ({ url, name, description = null, linkTo }) => {
                 ) : (
                     <img src='/Images/no_image.png' alt='playlist cover' />
                 )}
-                <div className='mask'>
-                    <FavoriteBorderIcon />
-                    <PlayCircleOutlineIcon />
-                    <MoreHorizIcon />
-                </div>
+                {type !== 'category' ? (
+                    <div className='mask'>
+                        <FavoriteBorderIcon />
+                        <PlayCircleOutlineIcon />
+                        <MoreHorizIcon />
+                    </div>
+                ) : (
+                    <div className='details'>
+                        <p className='name'>{name}</p>
+                    </div>
+                )}
             </Link>
-            <div className='details'>
-                <p className='name'>{name}</p>
-                {description ? (
-                    <p className='description'>{description}</p>
-                ) : null}
-            </div>
+            {type !== 'category' ? (
+                <div className='details'>
+                    <p className='name'>{name}</p>
+                    {description ? (
+                        <p className='description'>{description}</p>
+                    ) : null}
+                </div>
+            ) : null}
         </div>
     );
 };

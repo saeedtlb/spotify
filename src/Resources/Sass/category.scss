@@ -1,0 +1,12 @@
+.cat_playlists {
+    &__header {
+        color: #fff;
+        text-transform: capitalize;
+        border-bottom: 1px solid #808080;
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+}

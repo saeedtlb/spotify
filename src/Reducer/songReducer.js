@@ -1,9 +1,11 @@
 import {
+    ERROR,
     TOGGLE_PLAY,
     GET_SONG,
     GET_PLAYLIST_INFO,
     GET_HOME_PLAYLISTS,
     GET_CATEGORIES,
+    GET_CATEGORY_PLAYLISTS,
 } from '../Actions/types';
 
 export const initialState = {
@@ -67,6 +69,16 @@ export const songReducer = (state = initialState, action) => {
             return {
                 ...state,
                 categories: action.payload,
+            };
+        case GET_CATEGORY_PLAYLISTS:
+            return {
+                ...state,
+                cat_playlists: action.payload,
+            };
+        case ERROR:
+            return {
+                ...state,
+                error: action.payload,
             };
         default:
             return state;

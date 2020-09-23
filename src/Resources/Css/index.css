@@ -37,6 +37,16 @@ a {
   color: inherit;
 }
 
+.main {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background: #020916;
+  color: #fff;
+}
+
 .loading {
   position: absolute;
   top: 50%;

@@ -8,8 +8,7 @@ export const initialState = {
     image: null,
     user: null,
     token: null,
-    // token:
-    //     'BQDr6IIJj6p2iVBjEe0ILc_4qV3MeLBPpgnrcLo1xP0-jUu6Ng…Ig56kci9e-9mddkmeyXZNg5q2MrsYNwxJxLmPZbpVRmuHOj9E',
+    // token: 'BQDr6',
 };
 
 export const userReducer = (state = initialState, action) => {

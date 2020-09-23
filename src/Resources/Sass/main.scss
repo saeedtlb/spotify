@@ -1,25 +1,18 @@
-@import 'varriables';
-
 .main {
-    grid-column: 2/4;
-    grid-row: 1;
-    background: #020916;
-    color: #fff;
-    padding: 10px 15px;
+    padding: 20px 15px;
     position: relative;
-
-    .featured {
-        &__title {
-            border-bottom: 1px solid #808080;
-            font-weight: bold;
-            text-transform: capitalize;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-        }
-        &__playlists {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-        }
+}
+.featured {
+    &__title {
+        border-bottom: 1px solid #808080;
+        font-weight: bold;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+    &__playlists {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
     }
 }

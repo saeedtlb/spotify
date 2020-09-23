@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 
 import { useSongStateValue } from '../../DataLayer';
 
-import { toggle_play_status } from '../../../Actions/song';
+import { toggle_play_status, get_song } from '../../../Actions/song';
 
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
@@ -12,19 +12,13 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import LoopIcon from '@material-ui/icons/Loop';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
-import Slide from '@material-ui/core/Slide';
 
 const Controls = ({ volume }) => {
     const [{ playing, song }, dispatch] = useSongStateValue();
     const [err, setErr] = useState(false);
     const ref = useRef();
 
-    const SlideTransition = props => <Slide {...props} direction='left' />;
-
     const togglePlay = status => {
-        dispatch(toggle_play_status(status));
-        status ? ref.current.play() : ref.current.pause();
-
         if (song.url) {
             if (status) {
                 ref.current.play();
@@ -38,6 +32,14 @@ const Controls = ({ volume }) => {
         }
     };
 
+    useEffect(() => console.log('controls'));
+
+    useEffect(() => {
+        if (song.id) {
+            get_song(song.id).then(data => dispatch(data));
+        }
+    }, [song.id]);
+
     useEffect(() => {
         ref.current.volume = volume / 100;
     }, [volume]);
@@ -48,17 +50,18 @@ const Controls = ({ volume }) => {
         }
     }, [song.name, song.url, dispatch]);
 
+    const handleClose = () => setErr(false);
+
     return (
         <div>
             <audio ref={ref} src={song.url ? song.url : ''}></audio>
             <Snackbar
                 anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-                autoHideDuration={3000}
-                TransitionComponent={SlideTransition}
+                autoHideDuration={4000}
                 open={err}
-                onClose={() => setErr(false)}
+                onClose={handleClose}
             >
-                <Alert variant='filled' severity='error'>
+                <Alert variant='filled' severity='error' onClose={handleClose}>
                     this song does not have preview
                 </Alert>
             </Snackbar>

@@ -1,34 +1,41 @@
-.categories {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2/4;
-  background: #000;
+.categories__header {
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #fff;
+  padding: 20px 25px;
+  letter-spacing: 1.5px;
+}
+
+.categories__items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 25px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 20px 25px;
 }
 
-.categories .card img {
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+.categories .card {
+  display: inline-block;
+}
+
+.categories .card a {
+  display: inline-block;
 }
 
 .categories .card .details {
-  height: 15%;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
+  position: absolute;
+  bottom: 28%;
+  left: 50%;
+  -webkit-transform: translateX(-60%);
+          transform: translateX(-60%);
+  border-bottom: transparent;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
 }
 
-.categories .card .mask svg {
-  color: #fff;
+.categories .card:hover .details {
+  border-bottom: 1px solid #fff;
 }
 /*# sourceMappingURL=categories.css.map */

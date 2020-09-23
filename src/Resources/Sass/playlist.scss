@@ -1,8 +1,6 @@
 @import 'varriables';
 
 .playlist {
-    grid-column: 2/4;
-    grid-row: 1;
     overflow-y: scroll;
 
     &__detail {

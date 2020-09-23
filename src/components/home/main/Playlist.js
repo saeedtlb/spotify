@@ -13,6 +13,7 @@ import Loading from '../../utils/Loading';
 
 const Playlist = props => {
     const initial = { status: true, msg: '', err: false };
+    const check = JSON.stringify(initial);
     const [loading, setLoading] = useState(initial);
     const [{ playlist_info }, dispatch] = useSongStateValue();
 
@@ -35,10 +36,12 @@ const Playlist = props => {
         // if (playlist_info) {
         //     setLoading(prev => ({ ...prev, ...initial, status: false }));
         // }
-    }, [props.match.params.play_id, dispatch, initial]);
+    }, [props.match.params.play_id, check]);
+
+    useEffect(() => console.log('2playlist'));
 
     return (
-        <div className='playlist'>
+        <div className='main playlist'>
             {loading.status ? (
                 <Loading />
             ) : loading.err ? (

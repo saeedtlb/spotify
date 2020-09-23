@@ -29,11 +29,11 @@ const Main = () => {
             ? featured.map(playlist => (
                   <Card
                       key={playlist.id}
-                      //   id={playlist.id}
                       name={playlist.name}
                       description={playlist.description}
                       url={playlist.image}
                       linkTo={`/playlist/${playlist.id}`}
+                      type='playlist'
                   />
               ))
             : null;
