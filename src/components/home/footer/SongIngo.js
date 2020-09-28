@@ -32,15 +32,9 @@ const SongIngo = () => {
             <div className='info'>
                 <div className='texts'>
                     <div>
-                        {/* <span>{song.name}</span> */}
-                        <ContextMenuTrigger
-                            id={SONG}
-                            holdToDisplay={1200}
-                            disableIfShiftIsPressed={true}
-                        >
+                        <ContextMenuTrigger id={SONG} holdToDisplay={1200}>
                             <span>{song.name}</span>
                         </ContextMenuTrigger>
-                        <br />
                         {song.artists ? song.artists.join(', ') : ''}
                     </div>
                 </div>
