@@ -2,11 +2,16 @@ import React from 'react';
 
 import { useSongStateValue } from '../../DataLayer';
 
+import { ContextMenuTrigger, ContextMenu, MenuItem } from 'react-contextmenu';
+import { SONG } from '../../../Actions/types';
+import Song from '../../utils/context-menu/Song';
+
 const SongIngo = () => {
     const [{ song }] = useSongStateValue();
 
     return (
         <div className='song'>
+            <Song id={SONG} />
             <div className='cover'>
                 {song.cover ? (
                     <img
@@ -26,11 +31,18 @@ const SongIngo = () => {
             </div>
             <div className='info'>
                 <div className='texts'>
-                    <p>
-                        <span>{song.name}</span>
+                    <div>
+                        {/* <span>{song.name}</span> */}
+                        <ContextMenuTrigger
+                            id={SONG}
+                            holdToDisplay={1200}
+                            disableIfShiftIsPressed={true}
+                        >
+                            <span>{song.name}</span>
+                        </ContextMenuTrigger>
                         <br />
                         {song.artists ? song.artists.join(', ') : ''}
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

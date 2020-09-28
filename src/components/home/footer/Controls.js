@@ -32,8 +32,6 @@ const Controls = ({ volume }) => {
         }
     };
 
-    useEffect(() => console.log('controls'));
-
     useEffect(() => {
         if (song.id) {
             get_song(song.id).then(data => dispatch(data));

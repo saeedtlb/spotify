@@ -18,9 +18,9 @@ const Main = () => {
         if (featured.length > 0) {
             setLoading(false);
         } else {
-            get_Home_Playlists()
-                .then(data => dispatch(data))
-                .catch(err => console.log('err in main home', err));
+            // get_Home_Playlists()
+            //     .then(data => dispatch(data))
+            //     .catch(err => console.log('err in main home', err));
         }
     }, [featured.length, dispatch]);
 

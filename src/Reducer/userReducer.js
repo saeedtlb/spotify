@@ -7,8 +7,8 @@ export const initialState = {
     followers: null,
     image: null,
     user: null,
-    token: null,
-    // token: 'BQDr6',
+    // token: null,
+    token: 'BQDr6',
 };
 
 export const userReducer = (state = initialState, action) => {

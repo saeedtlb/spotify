@@ -11,3 +11,8 @@ export const GET_SONG = 'GET_SONG';
 export const GET_PLAYLIST_INFO = 'GET_PLAYLIST_INFO';
 export const GET_CATEGORIES = 'GET_CATEGORIES';
 export const GET_CATEGORY_PLAYLISTS = 'GET_CATEGORY_PLAYLISTS';
+
+// CONTEXT-MENU TYPES
+export const SONG = 'SONG';
+export const ARTIST = 'ARTIST';
+export const PLAYLIST = 'PLAYLIST';
