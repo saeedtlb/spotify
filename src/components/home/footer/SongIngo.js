@@ -2,7 +2,8 @@ import React from 'react';
 
 import { useSongStateValue } from '../../DataLayer';
 
-import { ContextMenuTrigger, ContextMenu, MenuItem } from 'react-contextmenu';
+import { MenuProvider } from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
 import { SONG } from '../../../Actions/types';
 import Song from '../../utils/context-menu/Song';
 
@@ -11,7 +12,6 @@ const SongIngo = () => {
 
     return (
         <div className='song'>
-            <Song id={SONG} />
             <div className='cover'>
                 {song.cover ? (
                     <img
@@ -32,11 +32,12 @@ const SongIngo = () => {
             <div className='info'>
                 <div className='texts'>
                     <div>
-                        <ContextMenuTrigger id={SONG} holdToDisplay={1200}>
+                        <MenuProvider id={SONG}>
                             <span>{song.name}</span>
-                        </ContextMenuTrigger>
-                        {song.artists ? song.artists.join(', ') : ''}
+                        </MenuProvider>
+                        <Song id={SONG} />
                     </div>
+                    {song.artists ? song.artists.join(', ') : ''}
                 </div>
             </div>
         </div>

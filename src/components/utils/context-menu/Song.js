@@ -1,124 +1,111 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import '../../../Resources/Css/menu.css';
 
-import { ContextMenu, MenuItem, SubMenu } from 'react-contextmenu';
+import {
+    Menu,
+    Item,
+    Separator,
+    Submenu,
+    theme,
+    animation,
+} from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
 
-import Divider from '@material-ui/core/Divider';
-import withStyles from '@material-ui/styles/withStyles';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import CameraAltOutlinedIcon from '@material-ui/icons/CameraAltOutlined';
 
 const Song = ({ id }) => {
-    const ref = useRef();
-    const Seperate = withStyles({
-        root: {
-            backgroundColor: '#fff',
-        },
-    })(Divider);
-
-    const showContext = e => {
-        let x = 0;
-        let y = 0;
-
-        const availHeight = e.target.innerHeight;
-        const availWidth = e.target.innerWidth;
-        const posY = ref.current.state.y;
-        const posX = ref.current.state.x;
-        const width = ~~window
-            .getComputedStyle(ref.current.menu)
-            .width.replace(/px/g, '');
-        const height = ~~window
-            .getComputedStyle(ref.current.menu)
-            .height.replace(/px/g, '');
-
-        if (posY + height >= availHeight) {
-            y = posY - height;
-        } else {
-            y = posY;
-        }
-
-        if (posX + width >= availWidth) {
-            x = posX - width;
-        } else {
-            x = posX;
-        }
-        ref.current.menu.style.top = `${y}px`;
-        ref.current.menu.style.left = `${x}px`;
-    };
-
-    const renderTitle = txt => `${txt} ${(<ChevronRightIcon />)}`;
-
-    const handleClick = (e, data) => console.log(data.item);
+    const handleClick = (e, data) => console.log(e, data);
 
     return (
-        <ContextMenu id={id} ref={ref} onShow={showContext} className='menu'>
-            <MenuItem onClick={handleClick} data={{ item: 'add to queue' }}>
-                add to queue
-            </MenuItem>
-            <MenuItem onClick={handleClick} data={{ item: 'go to song radio' }}>
-                go to song radio
-            </MenuItem>
+        <Menu
+            id={id}
+            theme={theme.dark}
+            animation={animation.flip}
+            // style={style}
+        >
+            <Item onClick={handleClick}>add to queue</Item>
+            <Item onClick={handleClick}>go to song radio</Item>
+            <Item onClick={handleClick}>go to artist</Item>
+            <Item onClick={handleClick}>go to album</Item>
+            <Item onClick={handleClick}>show credits</Item>
 
-            <Seperate />
+            <Separator />
 
-            <MenuItem onClick={handleClick} data={{ item: 'go to artist' }}>
-                go to artist
-            </MenuItem>
-            <MenuItem onClick={handleClick} data={{ item: 'go to album' }}>
-                go to album
-            </MenuItem>
-            <MenuItem onClick={handleClick} data={{ item: 'show credits' }}>
-                show credits
-            </MenuItem>
+            <Item onClick={handleClick}>save to your liked songs</Item>
 
-            <Seperate />
+            <Submenu label='add to playlist'>
+                <Item onClick={handleClick}>new playlist</Item>
+            </Submenu>
 
-            <MenuItem
-                onClick={handleClick}
-                data={{ item: 'save to your liked songs' }}
-            >
-                save to your liked songs
-            </MenuItem>
+            <Separator />
 
-            <SubMenu
-                // title={renderTitle('add to playlist')}
-                title='add to playlist>'
-                className='menu__sub'
-            >
-                <MenuItem onClick={handleClick} data={{ item: 'new playlist' }}>
-                    new playlist
-                </MenuItem>
-            </SubMenu>
-
-            <Divider />
-
-            <SubMenu title='share>' className='menu__sub'>
-                <MenuItem onClick={handleClick} data={{ item: 'facebook' }}>
-                    facebook
-                </MenuItem>
-                <MenuItem onClick={handleClick} data={{ item: 'twitter' }}>
-                    twitter
-                </MenuItem>
-                <MenuItem onClick={handleClick} data={{ item: 'telegram' }}>
-                    telegram
-                </MenuItem>
-                <MenuItem onClick={handleClick} data={{ item: 'skype' }}>
-                    skype
-                </MenuItem>
-                <MenuItem
-                    onClick={handleClick}
-                    data={{ item: 'copy song link' }}
-                >
+            <Submenu label='share' className='share'>
+                <Item onClick={handleClick}>
+                    <i>
+                        <img
+                            src='/Images/social-media/Facebook.png'
+                            alt='facebook'
+                        />
+                    </i>
+                    <span>facebook</span>
+                </Item>
+                <Item onClick={handleClick}>
+                    <i>
+                        <img
+                            src='/Images/social-media/Messenger.png'
+                            alt='messenger'
+                        />
+                    </i>
+                    <span>messenger</span>
+                </Item>
+                <Item onClick={handleClick}>
+                    <i>
+                        <img
+                            src='/Images/social-media/Twitter.png'
+                            alt='twitter'
+                        />
+                    </i>
+                    <span>twitter</span>
+                </Item>
+                <Item onClick={handleClick}>
+                    <i>
+                        <img
+                            src='/Images/social-media/Telegram.png'
+                            alt='telegram'
+                        />
+                    </i>
+                    <span>telegram</span>
+                </Item>
+                <Item onClick={handleClick}>
+                    <i>
+                        <img src='/Images/social-media/Skype.png' alt='skype' />
+                    </i>
+                    <span>skype</span>
+                </Item>
+                <Item onClick={handleClick}>
+                    <i>
+                        <img
+                            src='/Images/social-media/Tumblr.png'
+                            alt='Tumblr'
+                        />
+                    </i>
+                    <span>Tumblr</span>
+                </Item>
+                <Item onClick={handleClick}>
+                    <i></i>
+                    spotify code
+                </Item>
+                <Item onClick={handleClick}>
+                    <i></i>
                     copy song link
-                </MenuItem>
-                <MenuItem
-                    onClick={handleClick}
-                    data={{ item: 'copy spotify uri' }}
-                >
+                </Item>
+                <Item onClick={handleClick}>
+                    <i></i>
                     copy spotify uri
-                </MenuItem>
-            </SubMenu>
-        </ContextMenu>
+                </Item>
+            </Submenu>
+        </Menu>
     );
 };
 
@@ -135,7 +122,8 @@ show credits
 save to your liked songs
 add to playlist > new playlist
 ***************
-share > facebook
+share > 
+        facebook
         twitter
         telegram
         skype
