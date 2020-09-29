@@ -1,7 +1,6 @@
 .main {
   padding: 20px 15px;
   position: relative;
-  z-index: -1;
 }
 
 .featured__title {
