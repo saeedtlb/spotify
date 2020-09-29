@@ -2,6 +2,8 @@ import React from 'react';
 
 import '../../../Resources/Css/menu.css';
 
+import { SONG, ARTIST } from '../../../Actions/types';
+
 import {
     Menu,
     Item,
@@ -12,121 +14,70 @@ import {
 } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css';
 
-import CameraAltOutlinedIcon from '@material-ui/icons/CameraAltOutlined';
+import songItem from './json/song.json';
+import artistItem from './json/artist.json';
+import share from './json/share.json';
 
 const Song = ({ id }) => {
-    const handleClick = (e, data) => console.log(e, data);
+    const handleClick = ({ event, props }) => console.log(props.txt);
+
+    const render_items = arr =>
+        arr
+            ? arr.map((item, i) => (
+                  <React.Fragment key={i}>
+                      <Item onClick={handleClick} data={{ txt: item.key }}>
+                          {item.txt}
+                      </Item>
+                      {id === SONG && i === 4 ? <Separator /> : null}
+                      {id === ARTIST && (i === 0 || i === 2) ? (
+                          <Separator />
+                      ) : null}
+                  </React.Fragment>
+              ))
+            : null;
+
+    const render_share_items = () =>
+        share
+            ? share.map((item, i) => (
+                  <Item key={i} onClick={handleClick} data={{ txt: item.txt }}>
+                      <i>{item.url ? <img src={item.url} alt='' /> : null}</i>
+                      <span>{item.txt}</span>
+                  </Item>
+              ))
+            : null;
 
     return (
         <Menu
             id={id}
             theme={theme.dark}
             animation={animation.flip}
-            // style={style}
+            className='context-menu'
         >
-            <Item onClick={handleClick}>add to queue</Item>
-            <Item onClick={handleClick}>go to song radio</Item>
-            <Item onClick={handleClick}>go to artist</Item>
-            <Item onClick={handleClick}>go to album</Item>
-            <Item onClick={handleClick}>show credits</Item>
+            {id === SONG
+                ? render_items(songItem)
+                : id === ARTIST
+                ? render_items(artistItem)
+                : null}
 
-            <Separator />
+            {id === SONG ? (
+                <>
+                    <Submenu label='add to playlist'>
+                        <Item
+                            onClick={handleClick}
+                            data={{ txt: 'new playlist' }}
+                        >
+                            new playlist
+                        </Item>
+                    </Submenu>
+                    <Separator />
+                </>
+            ) : null}
 
-            <Item onClick={handleClick}>save to your liked songs</Item>
-
-            <Submenu label='add to playlist'>
-                <Item onClick={handleClick}>new playlist</Item>
-            </Submenu>
-
-            <Separator />
-
-            <Submenu label='share' className='share'>
-                <Item onClick={handleClick}>
-                    <i>
-                        <img
-                            src='/Images/social-media/Facebook.png'
-                            alt='facebook'
-                        />
-                    </i>
-                    <span>facebook</span>
-                </Item>
-                <Item onClick={handleClick}>
-                    <i>
-                        <img
-                            src='/Images/social-media/Messenger.png'
-                            alt='messenger'
-                        />
-                    </i>
-                    <span>messenger</span>
-                </Item>
-                <Item onClick={handleClick}>
-                    <i>
-                        <img
-                            src='/Images/social-media/Twitter.png'
-                            alt='twitter'
-                        />
-                    </i>
-                    <span>twitter</span>
-                </Item>
-                <Item onClick={handleClick}>
-                    <i>
-                        <img
-                            src='/Images/social-media/Telegram.png'
-                            alt='telegram'
-                        />
-                    </i>
-                    <span>telegram</span>
-                </Item>
-                <Item onClick={handleClick}>
-                    <i>
-                        <img src='/Images/social-media/Skype.png' alt='skype' />
-                    </i>
-                    <span>skype</span>
-                </Item>
-                <Item onClick={handleClick}>
-                    <i>
-                        <img
-                            src='/Images/social-media/Tumblr.png'
-                            alt='Tumblr'
-                        />
-                    </i>
-                    <span>Tumblr</span>
-                </Item>
-                <Item onClick={handleClick}>
-                    <i></i>
-                    spotify code
-                </Item>
-                <Item onClick={handleClick}>
-                    <i></i>
-                    copy song link
-                </Item>
-                <Item onClick={handleClick}>
-                    <i></i>
-                    copy spotify uri
-                </Item>
+            <Submenu label='share' className='context-menu__share'>
+                {render_share_items()}
             </Submenu>
         </Menu>
     );
 };
 
 export default Song;
-
-/*
-add to queue
-go to song radio
-**************
-go to artist
-go to album
-show credits
-**************
-save to your liked songs
-add to playlist > new playlist
-***************
-share > 
-        facebook
-        twitter
-        telegram
-        skype
-        copy song link
-        copy spotify uri
-*/

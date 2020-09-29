@@ -1,0 +1,26 @@
+[
+    {
+        "txt": "add to queue",
+        "key": "queue"
+    },
+    {
+        "txt": "go to song radio",
+        "key": "song radio"
+    },
+    {
+        "txt": "go to artist",
+        "key": "artist"
+    },
+    {
+        "txt": "go to album",
+        "key": "album"
+    },
+    {
+        "txt": "show credits",
+        "key": "show credits"
+    },
+    {
+        "txt": "save to your liked songs",
+        "key": "save"
+    }
+]

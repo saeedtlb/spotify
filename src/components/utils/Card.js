@@ -18,7 +18,7 @@ const Card = ({ url, name, description = null, linkTo, type }) => {
                 ) : (
                     <img src='/Images/no_image.png' alt='playlist cover' />
                 )}
-                {type !== 'category' ? (
+                {type === 'playlist' ? (
                     <div className='mask'>
                         <FavoriteBorderIcon />
                         <PlayCircleOutlineIcon />

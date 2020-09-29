@@ -1,0 +1,38 @@
+[
+    {
+        "txt": "Facebook",
+        "url": "/Images/social-media/Facebook.png"
+    },
+    {
+        "txt": "Messenger",
+        "url": "/Images/social-media/Messenger.png"
+    },
+    {
+        "txt": "Twitter",
+        "url": "/Images/social-media/Twitter.png"
+    },
+    {
+        "txt": "Telegram",
+        "url": "/Images/social-media/Telegram.png"
+    },
+    {
+        "txt": "Skype",
+        "url": "/Images/social-media/Skype.png"
+    },
+    {
+        "txt": "Tumblr",
+        "url": "/Images/social-media/Tumblr.png"
+    },
+    {
+        "txt": "spotify code",
+        "url": "/Images/camera.png"
+    },
+    {
+        "txt": "copy song link",
+        "url": "/Images/chain.png"
+    },
+    {
+        "txt": "copy spotify uri",
+        "url": ""
+    }
+]
