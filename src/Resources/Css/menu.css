@@ -1,6 +1,31 @@
-.share:last-child i {
+.context-menu {
+  text-transform: capitalize;
+}
+
+.context-menu__share > div:nth-child(2) {
+  left: 100%;
+  -webkit-box-shadow: -5px 1px 10px 3px #000;
+          box-shadow: -5px 1px 10px 3px #000;
+}
+
+.context-menu__share > div:nth-child(2) div[role='presentation'] > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.context-menu__share > div:nth-child(2) i {
   width: 20px;
   height: 20px;
-  margin-right: 4px;
+}
+
+.context-menu div[role='presentation']:hover > div:first-child {
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  background-color: #808080 !important;
 }
 /*# sourceMappingURL=menu.css.map */

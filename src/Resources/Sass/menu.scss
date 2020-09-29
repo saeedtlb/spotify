@@ -1,7 +1,23 @@
-.share:last-child {
-    i {
-        width: 20px;
-        height: 20px;
-        margin-right: 4px;
+.context-menu {
+    text-transform: capitalize;
+    &__share {
+        & > div:nth-child(2) {
+            left: 100%;
+            box-shadow: -5px 1px 10px 3px #000;
+
+            div[role='presentation'] > div {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            i {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    div[role='presentation']:hover > div:first-child {
+        transition: background-color 0.3s ease;
+        background-color: #808080 !important;
     }
 }
