@@ -4,7 +4,7 @@ import { useSongStateValue } from '../../DataLayer';
 
 import { MenuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css';
-import { SONG } from '../../../Actions/types';
+import { ARTIST, SONG } from '../../../Actions/types';
 import Song from '../../utils/context-menu/Song';
 
 const SongIngo = () => {
@@ -37,7 +37,16 @@ const SongIngo = () => {
                         </MenuProvider>
                         <Song id={SONG} />
                     </div>
-                    {song.artists ? song.artists.join(', ') : ''}
+                    {song.artists ? (
+                        <div>
+                            <MenuProvider id={ARTIST}>
+                                {song.artists.join(', ')}
+                            </MenuProvider>
+                            <Song id={ARTIST} />
+                        </div>
+                    ) : (
+                        ''
+                    )}
                 </div>
             </div>
         </div>
