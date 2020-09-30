@@ -1,0 +1,29 @@
+.qr {
+    & div[role='dialog'] {
+        background-color: #4a4a4a;
+        color: #cecece;
+    }
+    &__content {
+        @extend .qr__btn_container;
+        h3 {
+            text: {
+                transform: capitalize;
+                align: center;
+            }
+            margin-bottom: 10px;
+        }
+    }
+    &__btn_container {
+        margin: auto;
+    }
+    &__close_btn {
+        background-color: #0000006b;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 99px;
+        padding: 10px 35px;
+        text-transform: uppercase;
+        outline: none;
+        cursor: pointer;
+    }
+}

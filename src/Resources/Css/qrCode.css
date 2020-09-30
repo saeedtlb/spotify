@@ -1,0 +1,26 @@
+.qr div[role='dialog'] {
+  background-color: #4a4a4a;
+  color: #cecece;
+}
+
+.qr__content h3 {
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.qr__btn_container, .qr__content {
+  margin: auto;
+}
+
+.qr__close_btn {
+  background-color: #0000006b;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 99px;
+  padding: 10px 35px;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=qrCode.css.map */
