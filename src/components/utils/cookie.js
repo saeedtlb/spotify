@@ -13,6 +13,6 @@ export const getCookie = c_name => {
     if (find) {
         return find.split('=')[1];
     } else {
-        return 'no cookie set';
+        return '';
     }
 };

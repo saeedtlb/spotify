@@ -36,7 +36,7 @@ const Playlist = props => {
         // if (playlist_info) {
         //     setLoading(prev => ({ ...prev, ...initial, status: false }));
         // }
-    }, [props.match.params.play_id, check]);
+    }, [props.match.params.play_id, check, initial, dispatch]);
 
     return (
         <div className='main playlist'>

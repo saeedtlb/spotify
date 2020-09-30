@@ -21,7 +21,9 @@ import artistItem from './json/artist.json';
 import share from './json/share.json';
 
 const Song = ({ id }) => {
-    const [store, dispatch] = useSongStateValue();
+    // const [store, dispatch] = useSongStateValue();
+    const arr = useSongStateValue();
+    const dispatch = arr[1];
 
     const handleClick = ({ props }) => {
         console.log(props);

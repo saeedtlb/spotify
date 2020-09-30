@@ -36,11 +36,11 @@ const Controls = ({ volume }) => {
         if (song.id) {
             get_song(song.id).then(data => dispatch(data));
         }
-    }, [song.id]);
+    }, [song.id, dispatch]);
 
     useEffect(() => {
         ref.current.volume = volume / 100;
-    }, [volume]);
+    }, [volume, dispatch]);
 
     useEffect(() => {
         if (!song.url) {

@@ -25,7 +25,7 @@ const Category = props => {
                     'somthing went wrong on getting category playlists',
                 ]);
             });
-    }, [dispatch]);
+    }, [props.match.params.category_id, dispatch]);
 
     const render_cat_playlists = () =>
         cat_playlists
