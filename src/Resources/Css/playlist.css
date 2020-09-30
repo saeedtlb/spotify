@@ -1,5 +1,6 @@
 .playlist {
   overflow-y: scroll;
+  padding: 0;
 }
 
 .playlist__detail {

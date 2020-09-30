@@ -6,6 +6,7 @@
     &__content {
         @extend .qr__btn_container;
         h3 {
+            text-align: center;
             text: {
                 transform: capitalize;
                 align: center;

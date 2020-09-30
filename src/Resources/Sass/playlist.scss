@@ -2,6 +2,7 @@
 
 .playlist {
     overflow-y: scroll;
+    padding: 0;
 
     &__detail {
         display: flex;

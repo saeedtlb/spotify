@@ -4,6 +4,7 @@
 }
 
 .qr__content h3 {
+  text-align: center;
   text-transform: capitalize;
   text-align: center;
   margin-bottom: 10px;
