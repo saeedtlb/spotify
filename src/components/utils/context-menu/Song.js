@@ -19,7 +19,7 @@ import artistItem from './json/artist.json';
 import share from './json/share.json';
 
 const Song = ({ id }) => {
-    const handleClick = ({ event, props }) => console.log(props.txt);
+    const handleClick = ({ props }) => console.log(props.txt);
 
     const render_items = arr =>
         arr

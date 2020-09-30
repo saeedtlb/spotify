@@ -8,6 +8,7 @@ import {
     GET_PLAYLIST_INFO,
     GET_CATEGORIES,
     GET_CATEGORY_PLAYLISTS,
+    QRCODE,
 } from './types';
 
 const spotify = new SpotifyWebApi();
@@ -136,3 +137,11 @@ export const get_category_playlists = async id => {
         };
     }
 };
+
+export const qrCode = (status, txt = '') => ({
+    type: QRCODE,
+    payload: {
+        status,
+        txt,
+    },
+});

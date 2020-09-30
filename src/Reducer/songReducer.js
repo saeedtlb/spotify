@@ -6,12 +6,20 @@ import {
     GET_HOME_PLAYLISTS,
     GET_CATEGORIES,
     GET_CATEGORY_PLAYLISTS,
+    QRCODE,
 } from '../Actions/types';
 
 export const initialState = {
     // song: {},
     // featured: [],
     // playlists: [],
+    // qr: {
+    //     show: false,
+    // },
+    qr: {
+        show: true,
+        value: 'Nothing else matters',
+    },
     playing: false,
     song: {
         artists: ['the beatels', 'paul mcCaurteny'],
@@ -74,6 +82,14 @@ export const songReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cat_playlists: action.payload,
+            };
+        case QRCODE:
+            return {
+                ...state,
+                qr: {
+                    show: action.payload.status,
+                    txt: action.payload.txt,
+                },
             };
         case ERROR:
             return {

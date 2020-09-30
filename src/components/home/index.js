@@ -12,6 +12,7 @@ import Main from './main';
 import Playlist from './main/Playlist';
 import Categories from './main/category';
 import Category from './main/category/Category';
+import Qrcode from '../utils/Qrcode';
 
 const Body = () => {
     const leftSideBar = useMemo(() => <LeftSideBar />, []);
@@ -36,6 +37,7 @@ const Body = () => {
                             component={Category}
                         />
                     </Switch>
+                    <Qrcode />
                 </BrowserRouter>
             </div>
         </SongDataLayerProvider>
