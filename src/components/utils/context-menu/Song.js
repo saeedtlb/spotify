@@ -3,6 +3,8 @@ import React from 'react';
 import '../../../Resources/Css/menu.css';
 
 import { SONG, ARTIST } from '../../../Actions/types';
+import { qrCode } from '../../../Actions/song';
+import { useSongStateValue } from '../../DataLayer';
 
 import {
     Menu,
@@ -19,7 +21,15 @@ import artistItem from './json/artist.json';
 import share from './json/share.json';
 
 const Song = ({ id }) => {
-    const handleClick = ({ props }) => console.log(props.txt);
+    const [store, dispatch] = useSongStateValue();
+
+    const handleClick = ({ props }) => {
+        console.log(props);
+        if (props.txt === 'spotify code') {
+            const txt = props.ref.innerText ? props.ref.innerText : '';
+            dispatch(qrCode(true, txt));
+        }
+    };
 
     const render_items = arr =>
         arr

@@ -9,16 +9,13 @@ import { qrCode } from '../../Actions/song';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import Slide from '@material-ui/core/Slide';
 
 import { useSongStateValue } from '../DataLayer';
 
 const Qrcode = () => {
     const [{ qr }, dispatch] = useSongStateValue();
 
-    const Transition = React.forwardRef(function Transition(props, ref) {
-        return <Slide direction='up' ref={ref} {...props} />;
-    });
+    console.log(8888, qr);
 
     const handleClose = () => dispatch(qrCode(false));
 
@@ -29,13 +26,14 @@ const Qrcode = () => {
                 size={300}
                 style={{ transform: 'rotate(-90deg)' }}
             />
-        ) : null;
+        ) : (
+            <h2>Sorry, Not Available yet</h2>
+        );
 
     return (
         <Dialog
             open={qr.show}
             onClose={handleClose}
-            TransitionComponent={Transition}
             fullWidth={true}
             maxWidth='sm'
             className='qr'

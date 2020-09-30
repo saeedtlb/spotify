@@ -8,11 +8,17 @@ import Body from './components/home';
 const Routes = () => {
     const [{ token }] = useUserStateValue();
 
-    // useEffect(() => {
-    // window.addEventListener('contextmenu', e => e.preventDefault());
+    const remove_default_contextmenu = e => e.preventDefault();
 
-    // return () => window.removeEventListener('contextmenu');
-    // });
+    useEffect(() => {
+        window.addEventListener('contextmenu', remove_default_contextmenu);
+
+        return () =>
+            window.removeEventListener(
+                'contextmenu',
+                remove_default_contextmenu
+            );
+    }, []);
 
     return <>{token ? <Body /> : <Login />}</>;
 };

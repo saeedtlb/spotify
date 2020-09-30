@@ -12,8 +12,6 @@ const Category = props => {
     const [load, setLoad] = useState([true, null]);
     const [{ cat_playlists }, dispatch] = useSongStateValue();
 
-    console.log(888, cat_playlists);
-
     useEffect(() => {
         get_category_playlists(props.match.params.category_id)
             .then(data => {

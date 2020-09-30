@@ -54,7 +54,6 @@ export const toggle_play_status = status => ({
 export const get_song = async id => {
     try {
         const data = await spotify.getTrack(id);
-        console.log(85, data);
         const song = !data
             ? 'no song'
             : {
