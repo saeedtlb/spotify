@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { SongDataLayerProvider } from '../DataLayer';
 
-import LeftSideBar from './sidebar/LeftSideBar';
+import LeftSideBar from './sidebar/left/LeftSideBar';
+import Freind from './sidebar/right/Freind';
 import Player from './footer/Player';
 import Main from './main';
 import Playlist from './main/Playlist';
@@ -37,6 +38,7 @@ const Body = () => {
                             component={Category}
                         />
                     </Switch>
+                    <Freind />
                     <Qrcode />
                 </BrowserRouter>
             </div>

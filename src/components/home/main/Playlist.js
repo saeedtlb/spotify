@@ -18,24 +18,24 @@ const Playlist = props => {
     const [{ playlist_info }, dispatch] = useSongStateValue();
 
     useEffect(() => {
-        get_Playlist_info(props.match.params.play_id)
-            .then(data => {
-                dispatch(data);
-                setLoading(prev => ({ ...prev, ...initial, status: false }));
-            })
-            .catch(err => {
-                console.log(err);
-                setLoading({
-                    status: false,
-                    err: true,
-                    msg:
-                        'Somthing in requesting for data went wrong, please try later',
-                });
-            });
+        // get_Playlist_info(props.match.params.play_id)
+        //     .then(data => {
+        //         dispatch(data);
+        //         setLoading(prev => ({ ...prev, ...initial, status: false }));
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //         setLoading({
+        //             status: false,
+        //             err: true,
+        //             msg:
+        //                 'Somthing in requesting for data went wrong, please try later',
+        //         });
+        //     });
 
-        // if (playlist_info) {
-        //     setLoading(prev => ({ ...prev, ...initial, status: false }));
-        // }
+        if (playlist_info) {
+            setLoading(prev => ({ ...prev, ...initial, status: false }));
+        }
     }, [props.match.params.play_id, check, initial, dispatch]);
 
     return (
