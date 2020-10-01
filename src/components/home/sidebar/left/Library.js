@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Options from '../../utils/Options';
+import Options from '../../../utils/Options';
 
 const Library = () => {
     const element_txt = ['recently played', 'podcasts', 'local files'];

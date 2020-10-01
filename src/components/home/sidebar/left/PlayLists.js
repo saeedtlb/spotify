@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Options from '../../utils/Options';
+import Options from '../../../utils/Options';
 
-import { useSongStateValue } from '../../DataLayer';
+import { useSongStateValue } from '../../../DataLayer';
 
 const PlayLists = () => {
     const [{ playlists }] = useSongStateValue();

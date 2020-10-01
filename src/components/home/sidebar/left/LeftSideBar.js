@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../../Resources/Css/leftSideBar.css';
+import '../../../../Resources/Css/leftSideBar.css';
 
-import SidebarElement from '../../utils/SidebarElement';
+import SidebarElement from '../../../utils/SidebarElement';
 import Library from './Library';
 import PlayLists from './PlayLists';
 
