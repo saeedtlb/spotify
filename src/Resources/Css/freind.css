@@ -1,0 +1,94 @@
+.freind {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0.88%, #010b1e), color-stop(99.9%, #020b1c));
+  background: linear-gradient(360deg, #010b1e 0.88%, #020b1c 99.9%);
+  mix-blend-mode: normal;
+  opacity: 0.91;
+  -webkit-backdrop-filter: blur(30.1256px);
+          backdrop-filter: blur(30.1256px);
+  font-weight: 500;
+  position: relative;
+  color: #afafaf;
+}
+
+.freind .drawer > div {
+  width: 100%;
+  margin-top: 35px;
+  padding: 0 10px 10px;
+  background: inherit;
+  mix-blend-mode: inherit;
+  opacity: inherit;
+  -webkit-backdrop-filter: inherit;
+          backdrop-filter: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+.freind .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
+}
+
+.freind .activity {
+  margin-top: 20px;
+}
+
+.freind .activity h3 {
+  text-transform: uppercase;
+  color: #3b4c64;
+}
+
+.freind .activity .find_user {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.freind .activity .find_user p {
+  margin-bottom: 15px;
+  text-transform: lowercase;
+  font-weight: 700;
+}
+
+.freind .activity .find_user p::first-letter {
+  text-transform: uppercase;
+}
+
+.freind .activity .find_user button {
+  padding: 4px 20px;
+  border: 1px solid #c8c8c8;
+  border-radius: 99px;
+  background: transparent;
+  text-transform: uppercase;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.freind .activity .find_user button:hover {
+  -webkit-transform: rotateX(360deg);
+          transform: rotateX(360deg);
+  color: #46db70;
+  border-color: #46db70;
+}
+/*# sourceMappingURL=freind.css.map */
