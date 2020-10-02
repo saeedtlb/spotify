@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 import './Resources/Css/index.css';
 
 import { UserDataLayerProvider } from './components/DataLayer';
-import Routes from './Routes';
+import Main from './Main';
 
 ReactDOM.render(
     <UserDataLayerProvider>
-        <Routes />
+        <Main />
     </UserDataLayerProvider>,
     document.getElementById('root')
 );
