@@ -1,34 +1,69 @@
 .freind {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
-  -ms-grid-row: 1;
-  grid-row: 1;
+  -webkit-box-flex: 0.15;
+      -ms-flex: 0.15;
+          flex: 0.15;
+  width: 0;
+  max-width: 200px;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0.88%, #010b1e), color-stop(99.9%, #020b1c));
   background: linear-gradient(360deg, #010b1e 0.88%, #020b1c 99.9%);
   mix-blend-mode: normal;
   opacity: 0.91;
   -webkit-backdrop-filter: blur(30.1256px);
           backdrop-filter: blur(30.1256px);
-  font-weight: 500;
-  position: relative;
-  color: #afafaf;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.freind .right_side_icon {
+  cursor: pointer;
+  display: inline-block;
+  padding-top: 21px;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.freind .right_side_icon svg {
+  border-radius: 0 50% 50% 0;
+}
+
+.freind .right_side_icon[data-status='close'] {
+  -webkit-transform: rotate(180deg) translate(80%, -30%);
+          transform: rotate(180deg) translate(80%, -30%);
+}
+
+.freind .right_side_icon[data-status='close'] svg {
+  color: #000;
+  background-color: #46db70;
+}
+
+.freind .right_side_icon[data-status='open'] svg {
+  color: #46db70;
+  background-color: #fff;
+}
+
+.freind .right_side_icon:hover svg {
+  -webkit-animation: vibrate 100ms linear infinite alternate;
+          animation: vibrate 100ms linear infinite alternate;
+}
+
+.freind .right_side_icon[data-status='close']:hover svg {
+  -webkit-animation: scale 200ms linear infinite alternate;
+          animation: scale 200ms linear infinite alternate;
+}
+
+.freind .drawer {
+  height: 100%;
 }
 
 .freind .drawer > div {
+  background-color: initial;
+  font-weight: 500;
+  position: relative;
+  color: #afafaf;
   width: 100%;
-  margin-top: 35px;
-  padding: 0 10px 10px;
-  background: inherit;
-  mix-blend-mode: inherit;
-  opacity: inherit;
-  -webkit-backdrop-filter: inherit;
-          backdrop-filter: inherit;
-  color: inherit;
-  font-weight: inherit;
 }
 
-.freind .user {
+.freind .drawer > div .user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,18 +74,20 @@
       -ms-flex-align: center;
           align-items: center;
   text-transform: capitalize;
+  padding: 20px 10px;
 }
 
-.freind .activity {
+.freind .drawer > div .activity {
   margin-top: 20px;
+  padding: 20px 10px;
 }
 
-.freind .activity h3 {
+.freind .drawer > div .activity h3 {
   text-transform: uppercase;
   color: #3b4c64;
 }
 
-.freind .activity .find_user {
+.freind .drawer > div .activity .find_user {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -60,17 +97,17 @@
   text-align: center;
 }
 
-.freind .activity .find_user p {
+.freind .drawer > div .activity .find_user p {
   margin-bottom: 15px;
   text-transform: lowercase;
   font-weight: 700;
 }
 
-.freind .activity .find_user p::first-letter {
+.freind .drawer > div .activity .find_user p::first-letter {
   text-transform: uppercase;
 }
 
-.freind .activity .find_user button {
+.freind .drawer > div .activity .find_user button {
   padding: 4px 20px;
   border: 1px solid #c8c8c8;
   border-radius: 99px;
@@ -85,10 +122,60 @@
   font-size: 17px;
 }
 
-.freind .activity .find_user button:hover {
+.freind .drawer > div .activity .find_user button:hover {
   -webkit-transform: rotateX(360deg);
           transform: rotateX(360deg);
   color: #46db70;
   border-color: #46db70;
+}
+
+.close {
+  -webkit-box-flex: inherit;
+      -ms-flex: inherit;
+          flex: inherit;
+}
+
+@-webkit-keyframes vibrate {
+  from {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  to {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes vibrate {
+  from {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  to {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@-webkit-keyframes scale {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+@keyframes scale {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
 }
 /*# sourceMappingURL=freind.css.map */

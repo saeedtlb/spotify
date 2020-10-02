@@ -1,7 +1,5 @@
 footer {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
+  grid-column: 1/-1;
   -ms-grid-row: 2;
   grid-row: 2;
   width: 100%;
