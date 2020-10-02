@@ -42,7 +42,7 @@ const Category = props => {
             : null;
 
     return (
-        <div className='main cat_playlists'>
+        <div className='cat_playlists'>
             {load[0] ? (
                 <Loading />
             ) : load[1] ? (

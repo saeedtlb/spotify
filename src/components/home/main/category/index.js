@@ -37,7 +37,7 @@ const Categories = () => {
         ));
 
     return (
-        <div className='categories main'>
+        <div className='categories'>
             <div className='categories__header'>
                 <h1>browse</h1>
             </div>

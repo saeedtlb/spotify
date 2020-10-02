@@ -39,7 +39,7 @@ const Main = () => {
             : null;
 
     return (
-        <div className='main'>
+        <>
             {!loading ? (
                 <div className='featured'>
                     <div className='featured__title'>
@@ -50,7 +50,7 @@ const Main = () => {
             ) : (
                 <Loading />
             )}
-        </div>
+        </>
     );
 };
 

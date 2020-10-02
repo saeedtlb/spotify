@@ -39,7 +39,7 @@ const Playlist = props => {
     }, [props.match.params.play_id, check, initial, dispatch]);
 
     return (
-        <div className='main playlist'>
+        <div className='playlist'>
             {loading.status ? (
                 <Loading />
             ) : loading.err ? (
