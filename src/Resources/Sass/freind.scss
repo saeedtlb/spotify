@@ -1,79 +1,136 @@
 @import 'varriables';
 
+$time: 300ms ease;
+
 .freind {
-    grid-column: 3/4;
-    grid-row: 1;
+    flex: 0.15;
+    width: 0;
+    max-width: 200px;
     background: linear-gradient(360deg, #010b1e 0.88%, #020b1c 99.9%);
     mix-blend-mode: normal;
     opacity: 0.91;
     backdrop-filter: blur(30.1256px);
 
-    font-weight: 500;
-    position: relative;
-    color: #afafaf;
+    transition: all $time;
 
-    .drawer > div {
-        width: 100%;
-        margin-top: 35px;
-        padding: 0 10px 10px;
-        background: inherit;
-        mix-blend-mode: inherit;
-        opacity: inherit;
-        backdrop-filter: inherit;
-        color: inherit;
-        font-weight: inherit;
-    }
-    .user {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-transform: capitalize;
-    }
-    .activity {
-        margin-top: 20px;
+    .right_side_icon {
+        cursor: pointer;
+        display: inline-block;
+        padding-top: 21px;
+        transition: all $time;
 
-        h3 {
-            text-transform: uppercase;
-            color: #3b4c64;
+        svg {
+            border-radius: 0 50% 50% 0;
         }
-        .find_user {
+        &[data-status='close'] {
+            transform: rotate(180deg) translate(80%, -30%);
+            svg {
+                color: #000;
+                background-color: $spotify;
+            }
+        }
+        &[data-status='open'] svg {
+            color: $spotify;
+            background-color: #fff;
+        }
+
+        &:hover svg {
+            animation: vibrate 100ms linear infinite alternate;
+        }
+
+        &[data-status='close']:hover svg {
+            animation: scale 200ms linear infinite alternate;
+        }
+    }
+
+    .drawer {
+        height: 100%;
+
+        & > div {
+            background-color: initial;
+            font-weight: 500;
+            position: relative;
+            color: #afafaf;
             width: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
 
-            p {
-                margin-bottom: 15px;
-                text-transform: lowercase;
-                font-weight: 700;
-
-                &::first-letter {
-                    text-transform: uppercase;
-                }
+            .user {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: capitalize;
+                padding: 20px 10px;
             }
-            button {
-                padding: 4px 20px;
-                border: 1px solid rgb(200, 200, 200);
-                border-radius: 99px;
-                background: transparent;
-                text-transform: uppercase;
-                color: inherit;
-                cursor: pointer;
-                outline: none;
-                transition: all 0.6s ease-in-out;
-                font: {
-                    weight: bold;
-                    size: 17px;
-                }
 
-                &:hover {
-                    transform: rotateX(360deg);
-                    color: $spotify;
-                    border-color: $spotify;
+            .activity {
+                margin-top: 20px;
+                padding: 20px 10px;
+
+                h3 {
+                    text-transform: uppercase;
+                    color: #3b4c64;
+                }
+                .find_user {
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+
+                    p {
+                        margin-bottom: 15px;
+                        text-transform: lowercase;
+                        font-weight: 700;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                    button {
+                        padding: 4px 20px;
+                        border: 1px solid rgb(200, 200, 200);
+                        border-radius: 99px;
+                        background: transparent;
+                        text-transform: uppercase;
+                        color: inherit;
+                        cursor: pointer;
+                        outline: none;
+                        transition: all 0.6s ease-in-out;
+                        font: {
+                            weight: bold;
+                            size: 17px;
+                        }
+
+                        &:hover {
+                            transform: rotateX(360deg);
+                            color: $spotify;
+                            border-color: $spotify;
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+.close {
+    flex: inherit;
+}
+
+@keyframes vibrate {
+    from {
+        transform: rotate(-10deg);
+    }
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes scale {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
     }
 }
