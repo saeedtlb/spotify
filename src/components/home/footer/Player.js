@@ -28,7 +28,7 @@ const Player = () => {
                     <SongIngo />
                 </Grid>
 
-                <Grid item md={7}>
+                <Grid item md={7} className='control_container'>
                     <Controls volume={volume} />
                 </Grid>
 
