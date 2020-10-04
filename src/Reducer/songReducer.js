@@ -19,10 +19,10 @@ export const initialState = {
     },
     playing: false,
     song: {
-        artists: ['the beatels', 'paul mcCaurteny'],
-        name: 'yseterday',
+        artists: ['Mohesen yeganeh'],
+        name: 'Behet ghol midam',
         url:
-            'https://p.scdn.co/mp3-preview/cf95a6afa9293703378765c0da5e162cb1dced85?cid=5c15d7c30b744d5b8f8e435f01c9f405',
+            'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
     },
     featured: [
         {
