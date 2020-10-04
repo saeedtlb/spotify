@@ -1,8 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 
 import { useSongStateValue } from '../../DataLayer';
 
 import { toggle_play_status, get_song } from '../../../Actions/song';
+import useTimer from '../../../hooks/useTimer';
+
+import ReactPlayer from 'react-player';
 
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
@@ -14,23 +17,27 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
 const Controls = ({ volume }) => {
+    const { timer, isActive, start, pause, reset, setTimer } = useTimer();
     const [{ playing, song }, dispatch] = useSongStateValue();
-    const [err, setErr] = useState(false);
-    const ref = useRef();
+    const [err, setErr] = useState([false, null]);
+    const [info, setInfo] = useState({ duration: 1 });
+    const time_ref = useRef();
+    const seek_ref = useRef();
 
     const togglePlay = status => {
         if (song.url) {
-            if (status) {
-                ref.current.play();
-            } else {
-                ref.current.pause();
-            }
             dispatch(toggle_play_status(status));
-            err && setErr(false);
+            err && setErr([false, null]);
         } else {
-            setErr(true);
+            setErr([true, 'this song does not have preview']);
         }
     };
+
+    useEffect(() => {
+        const { value } = time_ref.current;
+        console.log(999, value);
+        time_ref.current.style.background = `linear-gradient(to right, #46db70 0%, #46db70 ${value}%, #3c3c3c ${value}%, #3c3c3c 100%)`;
+    }, [timer, isActive, start, pause, reset]);
 
     useEffect(() => {
         if (song.id) {
@@ -39,28 +46,52 @@ const Controls = ({ volume }) => {
     }, [song.id, dispatch]);
 
     useEffect(() => {
-        ref.current.volume = volume / 100;
-    }, [volume, dispatch]);
-
-    useEffect(() => {
         if (!song.url) {
-            setErr(true);
+            setErr([true, 'this song does not have preview']);
         }
     }, [song.name, song.url, dispatch]);
 
-    const handleClose = () => setErr(false);
+    const handleClose = () => setErr([false, null]);
+
+    const calculateDuration = seconds =>
+        Math.floor(seconds / 60) +
+        ':' +
+        ('0' + Math.floor(seconds % 60)).slice(-2);
+
+    const timebar = () => {
+        const value = parseInt(time_ref.current.value) / 100;
+        seek_ref.current.seekTo(value);
+        console.log(value * 100);
+        setTimer(value * 100);
+    };
 
     return (
-        <div>
-            <audio ref={ref} src={song.url ? song.url : ''}></audio>
+        <>
+            <ReactPlayer
+                url={song.url ? song.url : ''}
+                volume={volume / 100}
+                playing={playing}
+                ref={seek_ref}
+                style={{ display: 'none' }}
+                onDuration={e =>
+                    setInfo(prev => ({
+                        ...prev,
+                        duration: e,
+                    }))
+                }
+                onPlay={start}
+                onPause={pause}
+                // onSeek={e => console.log(46, e)}
+                onError={() => setErr([true, 'somthing went wrong!!!'])}
+            />
             <Snackbar
                 anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
                 autoHideDuration={4000}
-                open={err}
+                open={err[0]}
                 onClose={handleClose}
             >
                 <Alert variant='filled' severity='error' onClose={handleClose}>
-                    this song does not have preview
+                    {err[1]}
                 </Alert>
             </Snackbar>
             <div className='control'>
@@ -80,7 +111,21 @@ const Controls = ({ volume }) => {
                 <SkipNextIcon />
                 <LoopIcon />
             </div>
-        </div>
+
+            <div className='timebar'>
+                <span>{timer ? calculateDuration(timer) : ''}</span>
+                <input
+                    type='range'
+                    onChange={timebar}
+                    ref={time_ref}
+                    defaultValue='0'
+                    value={((timer / info.duration) * 100).toFixed(2)}
+                />
+                <span>
+                    {info.duration ? calculateDuration(info.duration) : ''}
+                </span>
+            </div>
+        </>
     );
 };
 
