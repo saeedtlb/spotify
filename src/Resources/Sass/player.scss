@@ -1,3 +1,7 @@
+@import 'varriables';
+$border: 50px;
+$transition: 100ms ease-out;
+
 footer {
     grid-column: 1/-1;
     grid-row: 2;
@@ -9,7 +13,8 @@ footer {
     color: #b3b3b3;
 
     .control {
-        margin: auto;
+        margin: 0 auto;
+        width: 28%;
         max-width: 280px;
         display: flex;
         justify-content: space-between;
@@ -63,6 +68,58 @@ footer {
                     margin-bottom: 8px;
                 }
             }
+        }
+    }
+}
+
+.control_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .timebar {
+        position: relative;
+        height: 4px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        span {
+            letter-spacing: 1px;
+            width: 3%;
+        }
+        input {
+            -webkit-appearance: none !important;
+            width: 94%;
+            height: 100%;
+            outline: none;
+            border-radius: 50px;
+            background: linear-gradient(
+                to right,
+                $spotify 0%,
+                $spotify 0%,
+                #3c3c3c 0%,
+                #3c3c3c 100%
+            );
+            transition: all 0.5s linear;
+
+            &::-webkit-slider-thumb {
+                -webkit-appearance: none !important;
+                width: 12px;
+                height: 12px;
+                margin-left: -4px;
+                margin-top: -3px;
+                border-radius: 50%;
+                background-color: rgb(233, 233, 233);
+                transform: scale(0);
+                transition: all 300ms ease-out;
+            }
+        }
+    }
+    &:hover {
+        input::-webkit-slider-thumb {
+            transform: scale(1);
         }
     }
 }
