@@ -6,7 +6,7 @@ const SidebarElement = ({ Icon = null, txt, style, id }) => {
     return (
         <div className='side_option' key={id}>
             {Icon ? (
-                <Link to='/browse'>
+                <Link to={txt === 'home' ? '/' : `/${txt}`}>
                     <Icon />
                     <span style={style}>{txt}</span>
                 </Link>

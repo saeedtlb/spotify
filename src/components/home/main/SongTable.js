@@ -21,15 +21,15 @@ import AddIcon from '@material-ui/icons/Add';
 const SongTable = ({ tracks }) => {
     const [{ playing }, dispatch] = useSongStateValue();
 
-    // const playSong = id => get_song(id).then(data => dispatch(data));
-    const playSong = id =>
-        dispatch({
-            type: 'GET_SONG',
-            payload: {
-                url: '',
-                name: 'levis',
-            },
-        });
+    const playSong = id => get_song(id).then(data => dispatch(data));
+    // const playSong = id =>
+    //     dispatch({
+    //         type: 'GET_SONG',
+    //         payload: {
+    //             url: '',
+    //             name: 'levis',
+    //         },
+    //     });
 
     const renderSongs = () =>
         tracks

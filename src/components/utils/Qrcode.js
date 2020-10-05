@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import QRCode from 'qrcode.react';
 
@@ -30,24 +30,27 @@ const Qrcode = () => {
             <h2>Sorry, Not Available yet</h2>
         );
 
-    return (
-        <Dialog
-            open={qr.show}
-            onClose={handleClose}
-            fullWidth={true}
-            maxWidth='sm'
-            className='qr'
-        >
-            <DialogContent className='qr__content'>
-                <h3>{qr.value}</h3>
-                <div className='qr__code'>{render_QR()}</div>
-            </DialogContent>
-            <DialogActions className='qr__btn_container'>
-                <button onClick={handleClose} className='qr__close_btn'>
-                    close
-                </button>
-            </DialogActions>
-        </Dialog>
+    return useMemo(
+        () => (
+            <Dialog
+                open={qr.show}
+                onClose={handleClose}
+                fullWidth={true}
+                maxWidth='sm'
+                className='qr'
+            >
+                <DialogContent className='qr__content'>
+                    <h3>{qr.value}</h3>
+                    <div className='qr__code'>{render_QR()}</div>
+                </DialogContent>
+                <DialogActions className='qr__btn_container'>
+                    <button onClick={handleClose} className='qr__close_btn'>
+                        close
+                    </button>
+                </DialogActions>
+            </Dialog>
+        ),
+        [qr.show]
     );
 };
 

@@ -7,23 +7,6 @@ import { useUserStateValue } from '../../../DataLayer';
 import DoubleArrowRoundedIcon from '@material-ui/icons/DoubleArrowRounded';
 import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-
-const drawer_button = {
-    open: {
-        transform: 'rotate(180deg) translate(80%, -30%)',
-        backgroundColor: '#fff',
-        borderRadius: '0 50% 50% 0',
-        cursor: 'pointer',
-    },
-    close: {
-        backgroundColor: '#fff',
-        color: '#000',
-        borderRadius: '0 50% 50% 0',
-        cursor: 'pointer',
-    },
-};
 
 const Freind = () => {
     const ref = useRef();

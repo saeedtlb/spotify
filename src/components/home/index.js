@@ -8,11 +8,12 @@ import { SongDataLayerProvider } from '../DataLayer';
 
 import Routes from './Routes';
 import LeftSideBar from './sidebar/left/LeftSideBar';
-import Player from './footer/Player';
+import Player from './footer/';
 import Qrcode from '../utils/Qrcode';
 
 const Body = () => {
     const leftSideBar = useMemo(() => <LeftSideBar />, []);
+    // const QRcode = useMemo(() => <Qrcode />, []);
 
     return (
         <SongDataLayerProvider>
@@ -22,6 +23,7 @@ const Body = () => {
                     <Routes />
                     <Player />
                     <Qrcode />
+                    {/* {QRcode} */}
                 </BrowserRouter>
             </div>
         </SongDataLayerProvider>

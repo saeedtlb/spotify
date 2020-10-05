@@ -5,7 +5,7 @@ import '../../../Resources/Css/playlist.css';
 import SongTable from './SongTable';
 
 import { useSongStateValue } from '../../DataLayer';
-import { get_Playlist_info } from '../../../Actions/song';
+import { get_Playlist_info, clear_playlist_info } from '../../../Actions/song';
 
 import Loading from '../../utils/Loading';
 
@@ -18,25 +18,30 @@ const Playlist = props => {
     const [{ playlist_info }, dispatch] = useSongStateValue();
 
     useEffect(() => {
-        // get_Playlist_info(props.match.params.play_id)
-        //     .then(data => {
-        //         dispatch(data);
-        //         setLoading(prev => ({ ...prev, ...initial, status: false }));
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //         setLoading({
-        //             status: false,
-        //             err: true,
-        //             msg:
-        //                 'Somthing in requesting for data went wrong, please try later',
-        //         });
-        //     });
+        get_Playlist_info(props.match.params.play_id)
+            .then(data => {
+                dispatch(data);
+                setLoading(prev => ({ ...prev, ...initial, status: false }));
+            })
+            .catch(err => {
+                console.log(err);
+                setLoading({
+                    status: false,
+                    err: true,
+                    msg:
+                        'Somthing in requesting for data went wrong, please try later',
+                });
+            });
 
-        if (playlist_info) {
-            setLoading(prev => ({ ...prev, ...initial, status: false }));
-        }
-    }, [props.match.params.play_id, check, initial, dispatch]);
+        // if (playlist_info) {
+        //     setLoading(prev => ({ ...prev, ...initial, status: false }));
+        // }
+
+        return () => {
+            dispatch(clear_playlist_info());
+        };
+    }, [props.match.params.play_id]);
+    // }, [props.match.params.play_id, check, initial, dispatch]);
 
     return (
         <div className='playlist'>
