@@ -1,15 +1,15 @@
 import { SET_USER } from '../Actions/types';
 
 export const initialState = {
-    // display_name: null,
+    display_name: null,
     email: null,
     id: null,
     followers: null,
     image: null,
     user: null,
-    // token: null,
-    display_name: 'saeed tlb',
-    token: 'BQDr685dfd52245',
+    token: null,
+    // display_name: 'saeed tlb',
+    // token: 'BQDr685dfd52245',
 };
 
 export const userReducer = (state = initialState, action) => {

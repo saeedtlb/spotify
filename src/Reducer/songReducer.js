@@ -1,5 +1,4 @@
 import {
-    ERROR,
     TOGGLE_PLAY,
     GET_SONG,
     GET_PLAYLIST_INFO,
@@ -10,37 +9,37 @@ import {
 } from '../Actions/types';
 
 export const initialState = {
-    // song: {},
-    // featured: [],
-    // playlists: [],
+    song: {},
+    featured: [],
+    playlists: [],
     qr: {
         show: false,
-        value: '',
+        value: null,
     },
     playing: false,
-    song: {
-        artists: ['Mohesen yeganeh'],
-        name: 'Behet ghol midam',
-        url:
-            'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
-    },
-    featured: [
-        {
-            description:
-                'Your Ultimate 2007 Mixtape. #SpotifyTBT Cover: Amy Winehouse',
-            id: '54343454',
-            image:
-                'https://i.scdn.co/image/ab67706f000000035641d7bd5341dadcb6332869',
-            name: 'Throwback thursday',
-        },
-    ],
-    playlists: [
-        { name: 'pop goes classic', id: '1' },
-        { name: 'metalica', id: '2' },
-        { name: 'coldplay', id: '3' },
-        { name: 'AC/DC', id: '4' },
-        { name: 'A Star is Born', id: '5' },
-    ],
+    // song: {
+    //     artists: ['Mohesen yeganeh'],
+    //     name: 'Behet ghol midam',
+    //     url:
+    //         'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
+    // },
+    // featured: [
+    //     {
+    //         description:
+    //             'Your Ultimate 2007 Mixtape. #SpotifyTBT Cover: Amy Winehouse',
+    //         id: '54343454',
+    //         image:
+    //             'https://i.scdn.co/image/ab67706f000000035641d7bd5341dadcb6332869',
+    //         name: 'Throwback thursday',
+    //     },
+    // ],
+    // playlists: [
+    //     { name: 'pop goes classic', id: '1' },
+    //     { name: 'metalica', id: '2' },
+    //     { name: 'coldplay', id: '3' },
+    //     { name: 'AC/DC', id: '4' },
+    //     { name: 'A Star is Born', id: '5' },
+    // ],
 };
 
 export const songReducer = (state = initialState, action) => {
@@ -56,6 +55,13 @@ export const songReducer = (state = initialState, action) => {
             return {
                 ...state,
                 song: action.payload,
+                qr: {
+                    show: false,
+                    value:
+                        typeof action.payload === 'object'
+                            ? action.payload.name
+                            : null,
+                },
             };
         case GET_HOME_PLAYLISTS:
             const { featured, song, playlists } = action.payload;
@@ -64,6 +70,10 @@ export const songReducer = (state = initialState, action) => {
                 featured,
                 song,
                 playlists,
+                qr: {
+                    show: false,
+                    value: song.name,
+                },
             };
         case GET_PLAYLIST_INFO:
             return {
@@ -85,13 +95,10 @@ export const songReducer = (state = initialState, action) => {
                 ...state,
                 qr: {
                     show: action.payload.status,
-                    value: action.payload.txt,
+                    value: action.payload.txt
+                        ? action.payload.txt
+                        : state.song.name,
                 },
-            };
-        case ERROR:
-            return {
-                ...state,
-                error: action.payload,
             };
         default:
             return state;
