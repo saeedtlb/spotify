@@ -1,27 +1,23 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
+// STATE
 import { useSongStateValue } from '../../DataLayer';
 
+// CUSTOM FUNCTIONS
 import { toggle_play_status, get_song } from '../../../Actions/song';
 import useTimer from '../../../hooks/useTimer';
+import Timebar from './Timebar';
+import ControlsBtn from './ControlsBtn';
+import Error from '../../utils/Error';
 
+// PLAYER PACKAGE
 import ReactPlayer from 'react-player';
 
-import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
-import ShuffleIcon from '@material-ui/icons/Shuffle';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
-import LoopIcon from '@material-ui/icons/Loop';
-import Snackbar from '@material-ui/core/Snackbar';
-import Alert from '@material-ui/lab/Alert';
-
 const Controls = ({ volume }) => {
-    const { timer, isActive, start, pause, reset, setTimer } = useTimer();
+    const { timer, start, pause, reset } = useTimer();
     const [{ playing, song }, dispatch] = useSongStateValue();
     const [err, setErr] = useState([false, null]);
-    const [info, setInfo] = useState({ duration: 1 });
-    const time_ref = useRef();
+    const [info, setInfo] = useState({ duration: 1, played: 0, seek: false });
     const seek_ref = useRef();
 
     const togglePlay = status => {
@@ -33,36 +29,43 @@ const Controls = ({ volume }) => {
         }
     };
 
+    const changeTimeBar = value => {
+        setInfo(prev => ({
+            ...prev,
+            played: parseInt(value),
+            seek: parseInt(value),
+        }));
+    };
+
     useEffect(() => {
-        const { value } = time_ref.current;
-        console.log(999, value);
-        time_ref.current.style.background = `linear-gradient(to right, #46db70 0%, #46db70 ${value}%, #3c3c3c ${value}%, #3c3c3c 100%)`;
-    }, [timer, isActive, start, pause, reset]);
+        setInfo(prev => ({
+            ...prev,
+            played: prev.seek
+                ? prev.seek
+                : ((timer / info.duration) * 100).toFixed(2),
+        }));
+    }, [timer, info.duration]);
 
     useEffect(() => {
         if (song.id) {
             get_song(song.id).then(data => dispatch(data));
         }
-    }, [song.id, dispatch]);
-
-    useEffect(() => {
         if (!song.url) {
             setErr([true, 'this song does not have preview']);
         }
-    }, [song.name, song.url, dispatch]);
+    }, [song.id, song.name, song.url, dispatch]);
 
     const handleClose = () => setErr([false, null]);
 
-    const calculateDuration = seconds =>
-        Math.floor(seconds / 60) +
-        ':' +
-        ('0' + Math.floor(seconds % 60)).slice(-2);
+    const handleMouseUp = () => seek_ref.current.seekTo(info.seek / 100, '');
 
-    const timebar = () => {
-        const value = parseInt(time_ref.current.value) / 100;
-        seek_ref.current.seekTo(value);
-        console.log(value * 100);
-        setTimer(value * 100);
+    const seekTo = e => {
+        reset(e);
+        setInfo(prev => ({
+            ...prev,
+            seek: false,
+            played: e,
+        }));
     };
 
     return (
@@ -81,50 +84,25 @@ const Controls = ({ volume }) => {
                 }
                 onPlay={start}
                 onPause={pause}
-                // onSeek={e => console.log(46, e)}
+                onSeek={seekTo}
+                onEnded={() => togglePlay(false)}
                 onError={() => setErr([true, 'somthing went wrong!!!'])}
             />
-            <Snackbar
-                anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-                autoHideDuration={4000}
-                open={err[0]}
-                onClose={handleClose}
-            >
-                <Alert variant='filled' severity='error' onClose={handleClose}>
-                    {err[1]}
-                </Alert>
-            </Snackbar>
-            <div className='control'>
-                <ShuffleIcon />
-                <SkipPreviousIcon />
-                {playing ? (
-                    <PauseCircleOutlineIcon
-                        className='play_pause'
-                        onClick={() => togglePlay(false)}
-                    />
-                ) : (
-                    <PlayCircleOutlineIcon
-                        className='play_pause'
-                        onClick={() => togglePlay(true)}
-                    />
-                )}
-                <SkipNextIcon />
-                <LoopIcon />
-            </div>
 
-            <div className='timebar'>
-                <span>{timer ? calculateDuration(timer) : ''}</span>
-                <input
-                    type='range'
-                    onChange={timebar}
-                    ref={time_ref}
-                    defaultValue='0'
-                    value={((timer / info.duration) * 100).toFixed(2)}
-                />
-                <span>
-                    {info.duration ? calculateDuration(info.duration) : ''}
-                </span>
-            </div>
+            <Error show={err[0]} txt={err[1]} handleClose={handleClose} />
+
+            <ControlsBtn
+                playing={playing}
+                toggle={value => togglePlay(value)}
+            />
+
+            <Timebar
+                timer={timer}
+                played={info.played}
+                duration={info.duration}
+                change={value => changeTimeBar(value)}
+                mouseUp={handleMouseUp}
+            />
         </>
     );
 };
