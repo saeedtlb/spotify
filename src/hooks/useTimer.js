@@ -13,16 +13,14 @@ const useTimer = (initialState = 0) => {
         clearInterval(countRef.current);
         setIsActive(false);
     };
-    // const resume = () => {
-    //     setIsActive(true);
-    // }
-    const reset = () => {
+    const reset = (time = 0) => {
         clearInterval(countRef.current);
         setIsActive(false);
-        setTimer(0);
+        setTimer(time);
+        start();
     };
 
-    return { timer, isActive, start, pause, setTimer };
+    return { timer, isActive, start, pause, reset };
 };
 
 export default useTimer;
