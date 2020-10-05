@@ -7,26 +7,22 @@ import { setCookie } from '../components/utils/cookie';
 const spotify = new SpotifyWebApi();
 
 export const getToken = async token => {
-    try {
-        spotify.setAccessToken(token);
-        const user = await spotify.getMe();
+    spotify.setAccessToken(token);
+    const user = await spotify.getMe();
 
-        setCookie('_token', token);
+    setCookie('_token', token);
 
-        let data = {
-            display_name: user.display_name,
-            email: user.email,
-            followers: user.followers.href,
-            id: user.id,
-            image: user.images[0],
-            token,
-        };
+    let data = {
+        display_name: user.display_name,
+        email: user.email,
+        followers: user.followers.href,
+        id: user.id,
+        image: user.images[0],
+        token,
+    };
 
-        return {
-            type: SET_USER,
-            payload: data,
-        };
-    } catch (error) {
-        console.log(error);
-    }
+    return {
+        type: SET_USER,
+        payload: data,
+    };
 };

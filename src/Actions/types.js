@@ -1,6 +1,3 @@
-// COMMON ACTION
-export const ERROR = 'ERROR';
-
 // USER
 export const SET_USER = 'SET_USER';
 
