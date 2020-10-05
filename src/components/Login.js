@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import '../Resources/Css/Login.css';
 
 import { accessUrl } from './utils/spotify';
-import { getCookie } from './utils/cookie';
+import { getCookie, deleteCookie } from './utils/cookie';
 import { useUserStateValue } from './DataLayer';
 
 import { getToken } from '../Actions/user';
@@ -13,8 +13,17 @@ const Login = () => {
 
     useEffect(() => {
         const cookie = getCookie('_token');
+        console.log(cookie);
 
-        if (!cookie) {
+        if (cookie) {
+            getToken(cookie)
+                .then(data => dispatch(data))
+                .catch(e => {
+                    console.log('cookie has expired, log in again');
+                    deleteCookie('_token');
+                });
+        } else {
+            console.log('no cookie set');
             const _token = window.location.hash
                 .slice(1)
                 .split('&')[0]
@@ -24,9 +33,6 @@ const Login = () => {
 
                 getToken(_token).then(data => dispatch(data));
             }
-        } else {
-            console.log('no cookie set');
-            getToken(cookie).then(data => dispatch(data));
         }
     }, [token, dispatch]);
 
