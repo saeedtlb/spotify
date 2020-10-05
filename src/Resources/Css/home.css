@@ -3,8 +3,5 @@
   display: grid;
   -ms-grid-columns: 20% 1fr;
       grid-template-columns: 20% 1fr;
-  -ms-grid-rows: 1fr 10%;
-      grid-template-rows: 1fr 10%;
-  height: 100vh;
 }
 /*# sourceMappingURL=home.css.map */

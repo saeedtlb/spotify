@@ -1,6 +1,11 @@
 .main {
-  padding-left: 15px;
   position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.featured {
+  padding: 20px 15px 0;
 }
 
 .featured__title {

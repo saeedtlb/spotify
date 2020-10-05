@@ -3,10 +3,11 @@ footer {
   -ms-grid-row: 2;
   grid-row: 2;
   width: 100%;
+  position: fixed;
+  bottom: 0;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(1.05%, #020814), color-stop(99.15%, #030d20));
   background: linear-gradient(360deg, #020814 1.05%, #030d20 99.15%);
   mix-blend-mode: normal;
-  opacity: 0.98;
   color: #b3b3b3;
 }
 
@@ -86,6 +87,7 @@ footer .song .info .texts span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 15px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
