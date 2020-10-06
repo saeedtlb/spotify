@@ -29,7 +29,7 @@ export const get_Home_Playlists = async () => {
         id: items[0].track.id,
         name: items[0].track.name,
         artists: items[0].track.artists.map(artist => artist.name),
-        cover: items[0].track.album.images[2],
+        cover: items[0].track.album.images[1],
     };
 
     const { playlists } = await spotify.getFeaturedPlaylists({ limit: 6 });

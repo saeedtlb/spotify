@@ -30,17 +30,7 @@ const SongIngo = () => {
                 onClick={expandImage}
             >
                 {song.cover ? (
-                    <img
-                        // src={expand ? song.cover[1].url : song.cover[0].url}
-                        src={song.cover[1].url}
-                        // width={
-                        //     expand ? song.cover[1].width : song.cover[0].width
-                        // }
-                        // height={
-                        //     expand ? song.cover[1].height : song.cover[0].height
-                        // }
-                        alt='song cover'
-                    />
+                    <img src={song.cover.url} alt='song cover' />
                 ) : (
                     <img
                         src='/Images/no_image.png'
