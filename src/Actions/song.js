@@ -1,7 +1,6 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
 import {
-    ERROR,
     GET_HOME_PLAYLISTS,
     GET_SONG,
     TOGGLE_PLAY,
@@ -9,6 +8,7 @@ import {
     GET_CATEGORIES,
     GET_CATEGORY_PLAYLISTS,
     QRCODE,
+    RECENTLY_PLAYED,
 } from './types';
 
 const spotify = new SpotifyWebApi();
@@ -46,16 +46,27 @@ export const get_Home_Playlists = async () => {
     };
 };
 
-export const recently_played = async () => {
-    const { items } = await spotify.getMyRecentlyPlayedTracks({ limit: 5 });
-    console.log(items);
-    // data['recently'] = items.map(song => ({
-    //     id: song.track.id,
-    //     url: song.track.preview_url,
-    //     name: song.track.name,
-    //     artists: song.track.artists.map(artist => artist.name),
-    //     type: song.track.type,
-    // }));
+export const recently_played = async (clear = false) => {
+    let data = [];
+    if (!clear) {
+        const { items } = await spotify.getMyRecentlyPlayedTracks({
+            limit: 30,
+        });
+        data = items.map(song => ({
+            id: song.track.id,
+            url: song.track.preview_url,
+            name: song.track.album.name,
+            artists: song.track.album.artists.map(artist => artist.name),
+            type: song.context.type,
+            image: song.track.album.images[1].url,
+            link: song.track.external_urls.spotify,
+        }));
+    }
+
+    return {
+        type: RECENTLY_PLAYED,
+        payload: data,
+    };
 };
 
 export const toggle_play_status = status => ({
