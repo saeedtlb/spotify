@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useSongStateValue } from '../../DataLayer';
 
@@ -9,15 +9,36 @@ import Song from '../../utils/context-menu/Song';
 
 const SongIngo = () => {
     const [{ song }] = useSongStateValue();
+    // const [image, setImage] = useState({expand: false});
+    const [expand, setExpand] = useState(false);
+
+    // useEffect(() => {
+    //     setImage({
+    //         url: song.cover[0].url
+    //     });
+    // }, [song.name]);
+
+    const expandImage = () => {
+        console.log('expand');
+        setExpand(prev => !prev);
+    };
 
     return (
-        <div className='song'>
-            <div className='cover'>
+        <div className={expand ? 'song_expand' : 'song'}>
+            <div
+                className={expand ? 'cover_expand' : 'cover'}
+                onClick={expandImage}
+            >
                 {song.cover ? (
                     <img
-                        src={song.cover.url}
-                        width='64px'
-                        height='64px'
+                        // src={expand ? song.cover[1].url : song.cover[0].url}
+                        src={song.cover[1].url}
+                        // width={
+                        //     expand ? song.cover[1].width : song.cover[0].width
+                        // }
+                        // height={
+                        //     expand ? song.cover[1].height : song.cover[0].height
+                        // }
                         alt='song cover'
                     />
                 ) : (
@@ -40,7 +61,7 @@ const SongIngo = () => {
                     {song.artists ? (
                         <div>
                             <MenuProvider id={ARTIST}>
-                                {song.artists.join(', ')}
+                                <span>{song.artists.join(', ')}</span>
                             </MenuProvider>
                             <Song id={ARTIST} />
                         </div>
