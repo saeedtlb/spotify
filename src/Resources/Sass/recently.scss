@@ -1,0 +1,28 @@
+.recently_played {
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-around;
+    align-items: center;
+
+    .card .details {
+        text-align: left;
+
+        .name {
+            margin: 8px 0;
+        }
+
+        .type {
+            font-weight: 400;
+
+            & p {
+                margin: 8px 0;
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}

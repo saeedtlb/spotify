@@ -1,0 +1,35 @@
+.recently_played {
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 25px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recently_played .card .details {
+  text-align: left;
+}
+
+.recently_played .card .details .name {
+  margin: 8px 0;
+}
+
+.recently_played .card .details .type {
+  font-weight: 400;
+}
+
+.recently_played .card .details .type p {
+  margin: 8px 0;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=recently.css.map */
