@@ -7,7 +7,9 @@ import Main from './main';
 import Playlist from './main/Playlist';
 import Categories from './main/category';
 import Category from './main/category/Category';
+import Recently from './main/Recently';
 
+// STATIC
 import Freind from './sidebar/right/Freind';
 
 const Routes = () => {
@@ -16,6 +18,7 @@ const Routes = () => {
             <Switch>
                 <Route exact path='/' component={Main} />
                 <Route exact path='/playlist/:play_id' component={Playlist} />
+                <Route exact path='/recently-played' component={Recently} />
                 <Route exact path='/browse' component={Categories} />
                 <Route
                     exact
