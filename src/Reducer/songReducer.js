@@ -9,37 +9,38 @@ import {
 } from '../Actions/types';
 
 export const initialState = {
-    song: {},
-    featured: [],
+    // song: {},
+    // featured: [],
+    recently: [],
     playlists: [],
     qr: {
         show: false,
         value: null,
     },
     playing: false,
-    // song: {
-    //     artists: ['Mohesen yeganeh'],
-    //     name: 'Behet ghol midam',
-    //     url:
-    //         'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
-    // },
-    // featured: [
-    //     {
-    //         description:
-    //             'Your Ultimate 2007 Mixtape. #SpotifyTBT Cover: Amy Winehouse',
-    //         id: '54343454',
-    //         image:
-    //             'https://i.scdn.co/image/ab67706f000000035641d7bd5341dadcb6332869',
-    //         name: 'Throwback thursday',
-    //     },
-    // ],
-    // playlists: [
-    //     { name: 'pop goes classic', id: '1' },
-    //     { name: 'metalica', id: '2' },
-    //     { name: 'coldplay', id: '3' },
-    //     { name: 'AC/DC', id: '4' },
-    //     { name: 'A Star is Born', id: '5' },
-    // ],
+    song: {
+        artists: ['Mohesen yeganeh'],
+        name: 'Behet ghol midam',
+        url:
+            'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
+    },
+    featured: [
+        {
+            description:
+                'Your Ultimate 2007 Mixtape. #SpotifyTBT Cover: Amy Winehouse',
+            id: '54343454',
+            image:
+                'https://i.scdn.co/image/ab67706f000000035641d7bd5341dadcb6332869',
+            name: 'Throwback thursday',
+        },
+    ],
+    playlists: [
+        { name: 'pop goes classic', id: '1' },
+        { name: 'metalica', id: '2' },
+        { name: 'coldplay', id: '3' },
+        { name: 'AC/DC', id: '4' },
+        { name: 'A Star is Born', id: '5' },
+    ],
 };
 
 export const songReducer = (state = initialState, action) => {
