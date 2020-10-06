@@ -61,6 +61,7 @@ export const get_song = async id => {
                   cover: data.album.images[2],
                   url: data.preview_url,
                   artists: data.artists.map(artist => artist.name),
+                  link: data.external_urls.spotify,
               };
 
         return {
