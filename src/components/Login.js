@@ -13,7 +13,6 @@ const Login = () => {
 
     useEffect(() => {
         const cookie = getCookie('_token');
-        console.log(cookie);
 
         if (cookie) {
             getToken(cookie)
