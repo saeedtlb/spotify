@@ -41,7 +41,6 @@ const Playlist = props => {
             dispatch(clear_playlist_info());
         };
     }, [props.match.params.play_id]);
-    // }, [props.match.params.play_id, check, initial, dispatch]);
 
     return (
         <div className='playlist'>
