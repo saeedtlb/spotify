@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import '../../../Resources/Css/menu.css';
 
@@ -21,15 +21,32 @@ import artistItem from './json/artist.json';
 import share from './json/share.json';
 
 const Song = ({ id }) => {
-    // const [store, dispatch] = useSongStateValue();
-    const arr = useSongStateValue();
-    const dispatch = arr[1];
+    const [{ song }, dispatch] = useSongStateValue();
+    const copyText = useRef(null);
 
     const handleClick = ({ props }) => {
         console.log(props);
         if (props.txt === 'spotify code') {
             const txt = props.ref.innerText ? props.ref.innerText : '';
             dispatch(qrCode(true, txt));
+        }
+        switch (props.txt) {
+            case 'spotify code':
+                const txt = props.ref.innerText ? props.ref.innerText : '';
+                dispatch(qrCode(true, txt));
+                break;
+            case 'copy song link':
+                const input = copyText.current;
+                input.focus();
+                input.select();
+                navigator.clipboard
+                    .writeText(input.value)
+                    .then(() => console.log('coppied successfully'))
+                    .catch(() => console.log('Failed to copied'));
+                break;
+            default:
+                console.log('not implemented yet');
+                break;
         }
     };
 
@@ -59,36 +76,43 @@ const Song = ({ id }) => {
             : null;
 
     return (
-        <Menu
-            id={id}
-            theme={theme.dark}
-            animation={animation.flip}
-            className='context-menu'
-        >
-            {id === SONG
-                ? render_items(songItem)
-                : id === ARTIST
-                ? render_items(artistItem)
-                : null}
+        <>
+            <Menu
+                id={id}
+                theme={theme.dark}
+                animation={animation.flip}
+                className='context-menu'
+            >
+                {id === SONG
+                    ? render_items(songItem)
+                    : id === ARTIST
+                    ? render_items(artistItem)
+                    : null}
 
-            {id === SONG ? (
-                <>
-                    <Submenu label='add to playlist'>
-                        <Item
-                            onClick={handleClick}
-                            data={{ txt: 'new playlist' }}
-                        >
-                            new playlist
-                        </Item>
-                    </Submenu>
-                    <Separator />
-                </>
-            ) : null}
+                {id === SONG ? (
+                    <>
+                        <Submenu label='add to playlist'>
+                            <Item
+                                onClick={handleClick}
+                                data={{ txt: 'new playlist' }}
+                            >
+                                new playlist
+                            </Item>
+                        </Submenu>
+                        <Separator />
+                    </>
+                ) : null}
 
-            <Submenu label='share' className='context-menu__share'>
-                {render_share_items()}
-            </Submenu>
-        </Menu>
+                <Submenu label='share' className='context-menu__share'>
+                    {render_share_items()}
+                </Submenu>
+            </Menu>
+            <input
+                type='hidden'
+                value={song.link ? song.link : 'No url provided'}
+                ref={copyText}
+            />
+        </>
     );
 };
 
