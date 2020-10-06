@@ -4,6 +4,7 @@ import {
     GET_PLAYLIST_INFO,
     GET_HOME_PLAYLISTS,
     GET_CATEGORIES,
+    RECENTLY_PLAYED,
     GET_CATEGORY_PLAYLISTS,
     QRCODE,
 } from '../Actions/types';
@@ -12,15 +13,39 @@ export const initialState = {
     // song: {},
     // featured: [],
     recently: [],
-    playlists: [],
+    // playlists: [],
     qr: {
         show: false,
         value: null,
     },
     playing: false,
+    // recently: [
+    //     {
+    //         id: '454545',
+    //         url: '',
+    //         name: 'the last of us part || (original sound track)',
+    //         artists: ['gustavo santaolalla, mac Quayle'],
+    //         type: 'album',
+    //         image:
+    //             'https://i.scdn.co/image/ab67616d00001e026582b0de8c4acde5f02f4f51',
+    //         link: '',
+    //     },
+    // ],
     song: {
-        artists: ['Mohesen yeganeh'],
-        name: 'Behet ghol midam',
+        artists: ['gustavo santaolalla, mac Quayle'],
+        name: 'the last of us part || (original sound track)',
+        // cover: [
+        //     {
+        //         url: 'https://i.scdn.co/image/5a73a056d0af707b4119a883d87285feda543fbb',
+        //         width: '64px',
+        //         height: '64px',
+        //     },
+        //     {
+        //         url: 'https://i.scdn.co/image/107819f5dc557d5d0a4b216781c6ec1b2f3c5ab2',
+        //         width: '300px',
+        //         height: '300px',
+        //     },
+        // ],
         url:
             'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
     },
@@ -90,6 +115,11 @@ export const songReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cat_playlists: action.payload,
+            };
+        case RECENTLY_PLAYED:
+            return {
+                ...state,
+                recently: action.payload,
             };
         case QRCODE:
             return {
