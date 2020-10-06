@@ -1,4 +1,5 @@
 .home {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 20% 1fr;
