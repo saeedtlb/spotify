@@ -46,6 +46,18 @@ export const get_Home_Playlists = async () => {
     };
 };
 
+export const recently_played = async () => {
+    const { items } = await spotify.getMyRecentlyPlayedTracks({ limit: 5 });
+    console.log(items);
+    // data['recently'] = items.map(song => ({
+    //     id: song.track.id,
+    //     url: song.track.preview_url,
+    //     name: song.track.name,
+    //     artists: song.track.artists.map(artist => artist.name),
+    //     type: song.track.type,
+    // }));
+};
+
 export const toggle_play_status = status => ({
     type: TOGGLE_PLAY,
     playing: status,
