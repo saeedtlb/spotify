@@ -1,3 +1,7 @@
+## Description
+
+This is a spotify web app which first show spotify logo and button to login, then it'll show featured playlist that you can click and show it's songs. From footer you can play the preview of song, change volume, and even like it. By clicking on cover art it'll expand like real spotify. Right click on whole page wont work but in footer if you right click on song name and artist it'll show you contextmenu. Most of it's functionality of buttons not work yet but in option side menu if you click on spotify code a dialog will pop up and show qrcode which you can scan and it contains song name also if you click on copy song link you'll get song link in your clipboard.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
