@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { useSongStateValue } from '../../DataLayer';
 
@@ -7,19 +7,16 @@ import 'react-contexify/dist/ReactContexify.min.css';
 import { ARTIST, SONG } from '../../../Actions/types';
 import Song from '../../utils/context-menu/Song';
 
+// ICONS
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 const SongIngo = () => {
     const [{ song }] = useSongStateValue();
-    // const [image, setImage] = useState({expand: false});
     const [expand, setExpand] = useState(false);
-
-    // useEffect(() => {
-    //     setImage({
-    //         url: song.cover[0].url
-    //     });
-    // }, [song.name]);
+    const [like, setLike] = useState(false);
 
     const expandImage = () => {
-        console.log('expand');
         setExpand(prev => !prev);
     };
 
@@ -43,8 +40,18 @@ const SongIngo = () => {
             <div className='info'>
                 <div className='texts'>
                     <div>
-                        <MenuProvider id={SONG}>
+                        <MenuProvider id={SONG} style={{ display: 'flex' }}>
                             <span>{song.name}</span>
+                            {like ? (
+                                <FavoriteIcon
+                                    style={{ color: '#46db70' }}
+                                    onClick={() => setLike(prev => !prev)}
+                                />
+                            ) : (
+                                <FavoriteBorderIcon
+                                    onClick={() => setLike(prev => !prev)}
+                                />
+                            )}
                         </MenuProvider>
                         <Song id={SONG} />
                     </div>
