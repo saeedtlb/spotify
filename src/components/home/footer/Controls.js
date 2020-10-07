@@ -14,7 +14,7 @@ import Error from '../../utils/Error';
 import ReactPlayer from 'react-player';
 
 const Controls = ({ volume }) => {
-    const { timer, start, pause, reset } = useTimer();
+    const { timer, start: play, pause, reset, finish } = useTimer();
     const [{ playing, song }, dispatch] = useSongStateValue();
     const [err, setErr] = useState([false, null]);
     const [info, setInfo] = useState({ duration: 1, played: 0, seek: false });
@@ -68,6 +68,15 @@ const Controls = ({ volume }) => {
         }));
     };
 
+    const start = () => {
+        setInfo(prev => ({
+            ...prev,
+            played: 0,
+            seek: false,
+        }));
+        finish();
+    };
+
     return (
         <>
             <ReactPlayer
@@ -82,7 +91,8 @@ const Controls = ({ volume }) => {
                         duration: e,
                     }))
                 }
-                onPlay={start}
+                onStart={start}
+                onPlay={play}
                 onPause={pause}
                 onSeek={seekTo}
                 onEnded={() => togglePlay(false)}

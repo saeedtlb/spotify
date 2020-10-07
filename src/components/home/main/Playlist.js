@@ -13,7 +13,7 @@ import Loading from '../../utils/Loading';
 
 const Playlist = props => {
     const initial = { status: true, msg: '', err: false };
-    const check = JSON.stringify(initial);
+    // const check = JSON.stringify(initial);
     const [loading, setLoading] = useState(initial);
     const [{ playlist_info }, dispatch] = useSongStateValue();
 
@@ -32,10 +32,6 @@ const Playlist = props => {
                         'Somthing in requesting for data went wrong, please try later',
                 });
             });
-
-        // if (playlist_info) {
-        //     setLoading(prev => ({ ...prev, ...initial, status: false }));
-        // }
 
         return () => {
             dispatch(clear_playlist_info());

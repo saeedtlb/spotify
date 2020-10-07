@@ -10,58 +10,19 @@ import {
 } from '../Actions/types';
 
 export const initialState = {
-    // song: {},
-    // featured: [],
+    song: {},
+    featured: [],
     recently: [],
-    // playlists: [],
+    playlists: [],
     qr: {
         show: false,
         value: null,
     },
     playing: false,
-    // recently: [
-    //     {
-    //         id: '454545',
-    //         url: '',
-    //         name: 'the last of us part || (original sound track)',
-    //         artists: ['gustavo santaolalla, mac Quayle'],
-    //         type: 'album',
-    //         image:
-    //             'https://i.scdn.co/image/ab67616d00001e026582b0de8c4acde5f02f4f51',
-    //         link: '',
-    //     },
-    // ],
-    song: {
-        artists: ['gustavo santaolalla, mac Quayle'],
-        name: 'the last of us part || (original sound track)',
-        cover: {
-            url:
-                'https://i.scdn.co/image/107819f5dc557d5d0a4b216781c6ec1b2f3c5ab2',
-        },
-        url:
-            'https://irsv.upmusics.com/Downloads/Musics/Mohsen%20Yeganeh%20-%20Behet%20Ghol%20Midam%20(128).mp3',
-    },
-    featured: [
-        {
-            description:
-                'Your Ultimate 2007 Mixtape. #SpotifyTBT Cover: Amy Winehouse',
-            id: '54343454',
-            image:
-                'https://i.scdn.co/image/ab67706f000000035641d7bd5341dadcb6332869',
-            name: 'Throwback thursday',
-        },
-    ],
-    playlists: [
-        { name: 'pop goes classic', id: '1' },
-        { name: 'metalica', id: '2' },
-        { name: 'coldplay', id: '3' },
-        { name: 'AC/DC', id: '4' },
-        { name: 'A Star is Born', id: '5' },
-    ],
 };
 
 export const songReducer = (state = initialState, action) => {
-    console.log('song', action);
+    // console.log('song', action);
 
     switch (action.type) {
         case TOGGLE_PLAY:

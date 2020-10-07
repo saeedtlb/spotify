@@ -15,8 +15,6 @@ import { useSongStateValue } from '../DataLayer';
 const Qrcode = () => {
     const [{ qr }, dispatch] = useSongStateValue();
 
-    console.log(8888, qr);
-
     const handleClose = () => dispatch(qrCode(false));
 
     const render_QR = () =>

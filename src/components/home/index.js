@@ -13,7 +13,7 @@ import Qrcode from '../utils/Qrcode';
 
 const Body = () => {
     const leftSideBar = useMemo(() => <LeftSideBar />, []);
-    // const QRcode = useMemo(() => <Qrcode />, []);
+    const QRcode = useMemo(() => <Qrcode />, []);
 
     return (
         <SongDataLayerProvider>
@@ -22,8 +22,8 @@ const Body = () => {
                     {leftSideBar}
                     <Routes />
                     <Player />
-                    <Qrcode />
-                    {/* {QRcode} */}
+                    {/* <Qrcode /> */}
+                    {QRcode}
                 </BrowserRouter>
             </div>
         </SongDataLayerProvider>

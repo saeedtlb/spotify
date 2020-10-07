@@ -141,16 +141,12 @@ export const get_categories = async () => {
 export const get_category_playlists = async id => {
     const { playlists } = await spotify.getCategoryPlaylists(id);
 
-    console.log(444, playlists);
-
     const data = playlists.items.map(playlist => ({
         name: playlist.name,
         id: playlist.id,
         image: playlist.images[0].url,
         description: playlist.description,
     }));
-
-    console.log(111, data);
 
     return {
         type: GET_CATEGORY_PLAYLISTS,

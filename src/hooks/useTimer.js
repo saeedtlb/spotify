@@ -19,8 +19,13 @@ const useTimer = (initialState = 0) => {
         setTimer(time);
         start();
     };
+    const finish = () => {
+        clearInterval(countRef.current);
+        setIsActive(false);
+        setTimer(0);
+    };
 
-    return { timer, isActive, start, pause, reset };
+    return { timer, start, pause, reset, finish };
 };
 
 export default useTimer;

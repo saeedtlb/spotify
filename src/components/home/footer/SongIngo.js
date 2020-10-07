@@ -40,7 +40,13 @@ const SongIngo = () => {
             <div className='info'>
                 <div className='texts'>
                     <div>
-                        <MenuProvider id={SONG} style={{ display: 'flex' }}>
+                        <MenuProvider
+                            id={SONG}
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                            }}
+                        >
                             <span>{song.name}</span>
                             {like ? (
                                 <FavoriteIcon
