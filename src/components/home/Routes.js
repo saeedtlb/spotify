@@ -8,6 +8,7 @@ import Playlist from './main/Playlist';
 import Categories from './main/category';
 import Category from './main/category/Category';
 import Recently from './main/Recently';
+import NotFound from './NotFound';
 
 // STATIC
 import Freind from './sidebar/right/Freind';
@@ -25,6 +26,7 @@ const Routes = () => {
                     path='/category/:category_id'
                     component={Category}
                 />
+                <Route component={NotFound} />
             </Switch>
             <Freind />
         </div>
