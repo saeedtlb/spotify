@@ -5,6 +5,7 @@ import { useSongStateValue } from '../../DataLayer';
 import { get_song } from '../../../Actions/song';
 
 import Loading from '../../utils/Loading';
+import { show_date } from '../../utils/misc';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -22,14 +23,6 @@ const SongTable = ({ tracks }) => {
     const [{ playing }, dispatch] = useSongStateValue();
 
     const playSong = id => get_song(id).then(data => dispatch(data));
-    // const playSong = id =>
-    //     dispatch({
-    //         type: 'GET_SONG',
-    //         payload: {
-    //             url: '',
-    //             name: 'levis',
-    //         },
-    //     });
 
     const renderSongs = () =>
         tracks
@@ -49,7 +42,9 @@ const SongTable = ({ tracks }) => {
                       <TableCell align='left'>
                           {track.artists.join(', ')}
                       </TableCell>
-                      <TableCell align='left'>{track.added}</TableCell>
+                      <TableCell align='left'>
+                          {show_date(track.added)}
+                      </TableCell>
                   </TableRow>
               ))
             : null;
